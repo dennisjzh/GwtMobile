@@ -21,7 +21,7 @@ GWT Mobile PhoneGap
 Apps that use GWT Mobile
 ------------------------
 
-[Fantasy Predictor] (http://www.touchonmobile.com): Manage all you Fantasy Football teams with the help of the Fantasy Predictor. 
+[Fantasy Predictor](http://www.touchonmobile.com): Manage all you Fantasy Football teams with the help of the Fantasy Predictor. 
 [Android Link](http://market.android.com/details?id=com.TouchOnMobile.FantasyPredictor), [iTunes Link](http://itunes.apple.com/us/app/fantasy-predictor/id405605997)
 
 GWT Mobile PhoneGap: A PhoneGap showcase app, demonstrate all PhoneGap functions!
