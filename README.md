@@ -25,6 +25,7 @@ Apps that use GWT Mobile
 [Android Link](http://market.android.com/details?id=com.TouchOnMobile.FantasyPredictor), [iTunes Link](http://itunes.apple.com/us/app/fantasy-predictor/id405605997)
 
 GWT Mobile PhoneGap: A PhoneGap showcase app, demonstrate all PhoneGap functions!
-[Android Link](http://market.android.com/details?id=com.gwtmobile.phonegap), iTunes link coming... 
+[Android Market Link](http://market.android.com/details?id=com.gwtmobile.phonegap)
+[iTunes App Store Link](http://itunes.apple.com/us/app/gwt-mobile-phonegap-showcase/id419032500?mt=8&ls=1) 
 
 
