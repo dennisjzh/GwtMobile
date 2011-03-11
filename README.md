@@ -27,4 +27,8 @@ Apps that use GWT Mobile
 GWT Mobile PhoneGap: A PhoneGap showcase app, demonstrate all PhoneGap functions!
 [Android Market](http://market.android.com/details?id=com.gwtmobile.phonegap), [iTunes App Store](http://itunes.apple.com/us/app/gwt-mobile-phonegap-showcase/id419032500?mt=8&ls=1) 
 
+GWT Mobile Google Group
+-----------------------
+
+Have questions? Post it on the [GWT Mobile Google Group](http://groups.google.com/group/gwtmobile) 
 
