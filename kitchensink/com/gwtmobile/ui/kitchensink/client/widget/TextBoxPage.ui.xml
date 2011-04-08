@@ -1,0 +1,53 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+		.flex > div {
+			display: table;
+			width: 100%;
+		}
+		.flex > div > * {
+			vertical-align: middle;
+			display: table-cell;
+		}
+		.flex > div > *:first-child {
+			text-align: right;
+			padding-right: 1em;
+			width: 30%;
+		}
+		.flex > div > *:last-child {
+			width: 90%;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel ui:field="header" leftButton="Back">
+			<g:Label>Text Box</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel hasTextBox="true">
+			<m:ListPanel selectable="false" styleName="ListPanel {style.flex}" >
+				<m:ListItem>
+					<g:Label>Text:</g:Label><m:TextBox/>
+				</m:ListItem>
+				<m:ListItem>
+					<g:Label>Password:</g:Label><m:PasswordTextBox/>
+				</m:ListItem>
+				<m:ListItem>
+					<g:Label>Number:</g:Label><m:NumberTextBox/>
+				</m:ListItem>
+				<m:ListItem>
+					<g:Label>Email:</g:Label><m:EmailTextBox/>
+				</m:ListItem>
+				<m:ListItem>
+					<g:Label>Url:</g:Label><m:UrlTextBox/>
+				</m:ListItem>
+				<m:ListItem>
+					<g:Label>Tel:</g:Label><m:TelTextBox/>
+				</m:ListItem>
+				<m:ListItem>
+					<g:Label>Text Area:</g:Label><m:TextArea/>
+				</m:ListItem>
+			</m:ListPanel>			
+		</m:ScrollPanel>
+	</g:HTMLPanel>	
+</ui:UiBinder> 

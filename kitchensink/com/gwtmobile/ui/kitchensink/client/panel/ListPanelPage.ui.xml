@@ -1,0 +1,33 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel ui:field="header" leftButton="Back">
+			<g:Label>List Panel</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel>
+			<g:HTMLPanel>
+				<m:ListPanel ui:field="list1" showArrow="false">
+					<g:Label>List 1, default to not show arrow</g:Label>
+					<g:Label>List 1, default to not show arrow</g:Label>
+					<m:ListItem showArrow="true"><g:Label>override show arrow setting on ListItem</g:Label></m:ListItem>
+					<m:ListItem showArrow="true"><g:Label>override show arrow setting on ListItem</g:Label></m:ListItem>
+					<g:Label>List 1, default to not show arrow</g:Label>
+					<g:Label>List 1, default to not show arrow</g:Label>
+				</m:ListPanel>
+				<br/>
+				<m:ListPanel ui:field="list2" showArrow="true">
+					<g:Label>List 2, default to show arrow</g:Label>
+					<g:Label>List 2, default to show arrow</g:Label>
+					<m:ListItem showArrow="false"><g:Label>override show arrow setting on ListItem</g:Label></m:ListItem>
+					<m:ListItem showArrow="false"><g:Label>override show arrow setting on ListItem</g:Label></m:ListItem>
+					<g:Label>List 2, default to show arrow</g:Label>
+					<g:Label>List 2, default to show arrow</g:Label>
+				</m:ListPanel>
+			</g:HTMLPanel>
+		</m:ScrollPanel>
+	</g:HTMLPanel>	
+</ui:UiBinder> 

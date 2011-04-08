@@ -1,0 +1,28 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel leftButton="Back">
+			<g:Label>Header Panel</g:Label>			
+		</m:HeaderPanel>
+		<br/>
+		<m:HeaderPanel>
+			<g:Label>Panel Has No Button</g:Label>			
+		</m:HeaderPanel>
+		<br/>
+		<m:HeaderPanel leftButton="Menu">
+			<g:Label>Panel Has Left Button</g:Label>			
+		</m:HeaderPanel>
+		<br/>
+		<m:HeaderPanel rightButton="Menu">
+			<g:Label>Panel Has Right Button</g:Label>			
+		</m:HeaderPanel>
+		<br/>
+		<m:HeaderPanel leftButton="Back" rightButton="Next">
+			<g:Label>Panel Has Two Buttons</g:Label>			
+		</m:HeaderPanel>
+	</g:HTMLPanel>	
+</ui:UiBinder> 

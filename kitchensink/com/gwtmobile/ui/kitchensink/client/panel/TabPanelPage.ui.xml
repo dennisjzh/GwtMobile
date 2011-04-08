@@ -1,0 +1,44 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel ui:field="header" leftButton="Back">
+			<g:Label>Tab Panel</g:Label>			
+		</m:HeaderPanel>
+		<m:TabPanel ui:field="tab">
+			<m:Tab>
+				<m:TabHeader>
+					<g:Label>Tab1</g:Label>
+				</m:TabHeader>
+				<m:TabContent>
+					<g:HTMLPanel styleName="Tab-Content">
+						<g:Label>Tab1 Content</g:Label>
+					</g:HTMLPanel>
+				</m:TabContent>
+			</m:Tab>
+			<m:Tab>
+				<m:TabHeader>
+					<g:Label>Tab2</g:Label>
+				</m:TabHeader>
+				<m:TabContent>
+					<g:HTMLPanel styleName="Tab-Content">
+						<g:Label>Tab2 Content</g:Label>
+					</g:HTMLPanel>
+				</m:TabContent>
+			</m:Tab>
+			<m:Tab>
+				<m:TabHeader>
+					<g:Label>Tab3</g:Label>
+				</m:TabHeader>
+				<m:TabContent>
+					<g:HTMLPanel styleName="Tab-Content">
+						<g:Label>Tab3 Content</g:Label>
+					</g:HTMLPanel>
+				</m:TabContent>
+			</m:Tab>
+		</m:TabPanel>
+	</g:HTMLPanel>	
+</ui:UiBinder> 

@@ -1,0 +1,23 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets"
+	xmlns:p="urn:import:com.gwtmobile.phonegap.kitchensink.client">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<p:PhoneGapHeaderPanel caption="Contacts"></p:PhoneGapHeaderPanel>
+		<m:ScrollPanel>
+			<g:HTMLPanel styleName="Container">
+				<m:ListPanel ui:field="list">
+					<g:Label>Create New Contact</g:Label>
+					<g:Label>Find Contacts</g:Label>
+					<g:Label>Clone Contact</g:Label>
+					<g:Label>Delete Contact</g:Label>
+				</m:ListPanel>
+				<g:Label>PhoneGap contact creation function is not working as of version 0.9.3. Only find function is tested at this point.</g:Label>
+				<g:HTML ui:field="text" styleName="Output">Console</g:HTML>
+			</g:HTMLPanel>
+		</m:ScrollPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

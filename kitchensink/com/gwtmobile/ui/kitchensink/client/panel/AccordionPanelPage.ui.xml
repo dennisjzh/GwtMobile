@@ -1,0 +1,54 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel ui:field="header" leftButton="Back">
+			<g:Label>Accordion Panel</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel>
+		<m:AccordionPanel ui:field="accordion">
+			<m:AccordionStack>
+				<m:AccordionHeader>
+					<g:Label>Accordion Stack 1</g:Label>
+				</m:AccordionHeader>
+				<m:AccordionContent>
+					<g:Label>Accordion Stack 1 Content</g:Label>
+				</m:AccordionContent>
+			</m:AccordionStack>
+			<m:AccordionStack>
+				<m:AccordionHeader>
+					<g:Label>Accordion Stack 2</g:Label>
+				</m:AccordionHeader>
+				<m:AccordionContent>
+					<g:Label>Accordion Stack 2 Content</g:Label>
+					<g:Label>Accordion Stack 2 Content</g:Label>
+				</m:AccordionContent>
+			</m:AccordionStack>
+			<m:AccordionStack>
+				<m:AccordionHeader>
+					<g:Label>Accordion Stack 3</g:Label>
+				</m:AccordionHeader>
+				<m:AccordionContent>
+					<g:Label>Accordion Stack 3 Content</g:Label>
+					<g:Label>Accordion Stack 3 Content</g:Label>
+					<g:Label>Accordion Stack 3 Content</g:Label>
+				</m:AccordionContent>
+			</m:AccordionStack>
+			<m:AccordionStack>
+				<m:AccordionHeader>
+					<g:Label>Accordion Stack 4</g:Label>
+				</m:AccordionHeader>
+				<m:AccordionContent>
+					<g:Label>Accordion Stack 4 Content</g:Label>
+					<g:Label>Accordion Stack 4 Content</g:Label>
+					<g:Label>Accordion Stack 4 Content</g:Label>
+					<g:Label>Accordion Stack 4 Content</g:Label>
+				</m:AccordionContent>
+			</m:AccordionStack>
+		</m:AccordionPanel>
+		</m:ScrollPanel>
+	</g:HTMLPanel>	
+</ui:UiBinder> 

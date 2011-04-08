@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel leftButton="Back">
+			<g:Label>Transitions</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel>
+			<m:ListPanel ui:field="list" showArrow="false">
+				<g:Label>Slide</g:Label>			
+				<g:Label>Slide Up</g:Label>			
+				<g:Label>Slide Down</g:Label>			
+				<g:Label>Fade</g:Label>			
+				<g:Label>Pop</g:Label>			
+				<g:Label>Swap</g:Label>			
+				<g:Label>Flip (Rotate in Android)</g:Label>			
+				<!--g:Label>Cube (iPhone only)</g:Label-->			
+			</m:ListPanel>
+		</m:ScrollPanel>
+		
+	</g:HTMLPanel>	
+</ui:UiBinder> 

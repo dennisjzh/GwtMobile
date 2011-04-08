@@ -1,0 +1,114 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel ui:field="header" leftButton="Back">
+			<g:Label>Scroll Panel</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel>
+			<m:ListPanel ui:field="list" showArrow="false">
+				<g:Label>Scroll Me 01</g:Label>
+				<g:Label>Scroll Me 02</g:Label>
+				<g:Label>Scroll Me 03</g:Label>
+				<g:Label>Scroll Me 04</g:Label>
+				<g:Label>Scroll Me 05</g:Label>
+				<g:Label>Scroll Me 06</g:Label>
+				<g:Label>Scroll Me 07</g:Label>
+				<g:Label>Scroll Me 08</g:Label>
+				<g:Label>Scroll Me 09</g:Label>
+				<g:Label>Scroll Me 10</g:Label>
+				<g:Label>Scroll Me 11</g:Label>
+				<g:Label>Scroll Me 12</g:Label>
+				<g:Label>Scroll Me 13</g:Label>
+				<g:Label>Scroll Me 14</g:Label>
+				<g:Label>Scroll Me 15</g:Label>
+				<g:Label>Scroll Me 16</g:Label>
+				<g:Label>Scroll Me 17</g:Label>
+				<g:Label>Scroll Me 18</g:Label>
+				<g:Label>Scroll Me 19</g:Label>
+				<g:Label>Scroll Me 20</g:Label>
+				<g:Label>Scroll Me 21</g:Label>
+				<g:Label>Scroll Me 22</g:Label>
+				<g:Label>Scroll Me 23</g:Label>
+				<g:Label>Scroll Me 24</g:Label>
+				<g:Label>Scroll Me 25</g:Label>
+				<g:Label>Scroll Me 26</g:Label>
+				<g:Label>Scroll Me 27</g:Label>
+				<g:Label>Scroll Me 28</g:Label>
+				<g:Label>Scroll Me 29</g:Label>
+				<g:Label>Scroll Me 31</g:Label>
+				<g:Label>Scroll Me 32</g:Label>
+				<g:Label>Scroll Me 33</g:Label>
+				<g:Label>Scroll Me 34</g:Label>
+				<g:Label>Scroll Me 35</g:Label>
+				<g:Label>Scroll Me 36</g:Label>
+				<g:Label>Scroll Me 37</g:Label>
+				<g:Label>Scroll Me 38</g:Label>
+				<g:Label>Scroll Me 39</g:Label>
+				<g:Label>Scroll Me 40</g:Label>
+				<g:Label>Scroll Me 41</g:Label>
+				<g:Label>Scroll Me 42</g:Label>
+				<g:Label>Scroll Me 43</g:Label>
+				<g:Label>Scroll Me 44</g:Label>
+				<g:Label>Scroll Me 45</g:Label>
+				<g:Label>Scroll Me 46</g:Label>
+				<g:Label>Scroll Me 47</g:Label>
+				<g:Label>Scroll Me 48</g:Label>
+				<g:Label>Scroll Me 49</g:Label>
+				<g:Label>Scroll Me 50</g:Label>
+				<g:Label>Scroll Me 51</g:Label>
+				<g:Label>Scroll Me 52</g:Label>
+				<g:Label>Scroll Me 53</g:Label>
+				<g:Label>Scroll Me 54</g:Label>
+				<g:Label>Scroll Me 55</g:Label>
+				<g:Label>Scroll Me 56</g:Label>
+				<g:Label>Scroll Me 57</g:Label>
+				<g:Label>Scroll Me 58</g:Label>
+				<g:Label>Scroll Me 59</g:Label>
+				<g:Label>Scroll Me 60</g:Label>
+				<g:Label>Scroll Me 61</g:Label>
+				<g:Label>Scroll Me 62</g:Label>
+				<g:Label>Scroll Me 63</g:Label>
+				<g:Label>Scroll Me 64</g:Label>
+				<g:Label>Scroll Me 65</g:Label>
+				<g:Label>Scroll Me 66</g:Label>
+				<g:Label>Scroll Me 67</g:Label>
+				<g:Label>Scroll Me 68</g:Label>
+				<g:Label>Scroll Me 69</g:Label>
+				<g:Label>Scroll Me 70</g:Label>
+				<g:Label>Scroll Me 71</g:Label>
+				<g:Label>Scroll Me 72</g:Label>
+				<g:Label>Scroll Me 73</g:Label>
+				<g:Label>Scroll Me 74</g:Label>
+				<g:Label>Scroll Me 75</g:Label>
+				<g:Label>Scroll Me 76</g:Label>
+				<g:Label>Scroll Me 77</g:Label>
+				<g:Label>Scroll Me 78</g:Label>
+				<g:Label>Scroll Me 79</g:Label>
+				<g:Label>Scroll Me 80</g:Label>
+				<g:Label>Scroll Me 81</g:Label>
+				<g:Label>Scroll Me 82</g:Label>
+				<g:Label>Scroll Me 83</g:Label>
+				<g:Label>Scroll Me 84</g:Label>
+				<g:Label>Scroll Me 85</g:Label>
+				<g:Label>Scroll Me 86</g:Label>
+				<g:Label>Scroll Me 87</g:Label>
+				<g:Label>Scroll Me 88</g:Label>
+				<g:Label>Scroll Me 89</g:Label>
+				<g:Label>Scroll Me 90</g:Label>
+				<g:Label>Scroll Me 91</g:Label>
+				<g:Label>Scroll Me 92</g:Label>
+				<g:Label>Scroll Me 93</g:Label>
+				<g:Label>Scroll Me 94</g:Label>
+				<g:Label>Scroll Me 95</g:Label>
+				<g:Label>Scroll Me 96</g:Label>
+				<g:Label>Scroll Me 97</g:Label>
+				<g:Label>Scroll Me 98</g:Label>
+				<g:Label>Scroll Me 99</g:Label>
+			</m:ListPanel>
+		</m:ScrollPanel>
+	</g:HTMLPanel>	
+</ui:UiBinder> 

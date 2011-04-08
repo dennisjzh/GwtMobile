@@ -1,0 +1,64 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets"
+	xmlns:p="urn:import:com.gwtmobile.phonegap.kitchensink.client">
+	<ui:style>
+		.container {
+			-webkit-box-orient: horizontal !important;
+			-webkit-box-flex: 0 !important;
+		}
+		.left > div:first-child{
+			border-top-right-radius: 0 0;
+			-webkit-box-shadow: rgba(0, 0, 0, 1) 0em 0em 0.5em;
+		}		
+		.left > div:last-child {
+			border-bottom-right-radius: 0 0;
+			-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0em 0.2em 0.2em;
+		}
+		.left > div {
+			border-right: 1px solid #333333;
+		}
+		.right > div:first-child {
+			border-top-left-radius: 0 0;
+			-webkit-box-shadow: rgba(0, 0, 0, .35) 0em -0.2em 0.1em;
+		}
+		
+		.right > div:last-child {
+			border-bottom-left-radius: 0 0;
+			-webkit-box-shadow: rgba(0, 0, 0, .35) 0em 0.2em 0.1em;
+		}
+		.right > div {
+			border-left: 1px solid #666666;
+		}
+		.left, .right {
+			-webkit-box-flex: 1;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<p:PhoneGapHeaderPanel caption="File"></p:PhoneGapHeaderPanel>
+		<m:ScrollPanel styleName="Scroller">
+			<g:HTMLPanel styleName="Container">
+				<g:HTMLPanel styleName="Container {style.container}">
+					<m:ListPanel ui:field="list0" styleName="List {style.left}">
+						<g:Label>Create Dir</g:Label>
+						<g:Label>Test Dir Exists</g:Label>
+						<g:Label>Test File Exists</g:Label>
+						<g:Label>Delete Dir</g:Label>
+						<g:Label>Delete File</g:Label>
+						<g:Label>Free Disk Space</g:Label>
+					</m:ListPanel>
+					<m:ListPanel ui:field="list1" styleName="List {style.right}">
+						<g:Label>Write</g:Label>
+						<g:Label>Truncate</g:Label>
+						<g:Label>Seek</g:Label>
+						<g:Label>Read As Data URL</g:Label>
+						<g:Label>Read As Text</g:Label>
+						<g:Label>Abort</g:Label>
+					</m:ListPanel>
+				</g:HTMLPanel>
+				<g:HTML ui:field="text" styleName="Output">Console</g:HTML>
+			</g:HTMLPanel>
+		</m:ScrollPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

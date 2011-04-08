@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets"
+	xmlns:p="urn:import:com.gwtmobile.phonegap.kitchensink.client">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<p:PhoneGapHeaderPanel caption="Media"></p:PhoneGapHeaderPanel>
+		<m:ScrollPanel>
+			<g:HTMLPanel styleName="Container">
+				<m:ListPanel ui:field="list">
+					<g:Label>Play</g:Label>
+					<g:Label>Pause</g:Label>
+					<g:Label>Stop</g:Label>
+				</m:ListPanel>
+				<g:HTML ui:field="text" styleName="Output">Music will be loaded from www.freekidsmusic.com</g:HTML>
+			</g:HTMLPanel>
+		</m:ScrollPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

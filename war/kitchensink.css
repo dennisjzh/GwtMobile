@@ -1,0 +1,28 @@
+.Slide-Content, .Tab-Content {
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	-webkit-box-orient: vertical;			
+	color: gray;
+	background: white;
+	-webkit-box-flex: 1;
+	border-radius: 0.4em;
+	-webkit-box-shadow: white 0em 0em 0.1em;	
+	overflow: hidden;				
+}
+
+.Container {
+	-webkit-box-flex: 1;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+.Output {			
+	margin: .5em 0 .5em 0;
+	padding: .2em;
+	color: gray;
+	background: white;
+	-webkit-box-flex: 1;
+	border-radius: 0.6em;
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0em 0em 0.5em;	
+	overflow: hidden;				
+}

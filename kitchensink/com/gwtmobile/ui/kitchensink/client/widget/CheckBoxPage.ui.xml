@@ -1,0 +1,38 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+		.modify {
+			-webkit-box-orient: vertical !important;
+			-webkit-box-align: start !important;		
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel ui:field="header" leftButton="Back">
+			<g:Label>Check Box</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel>
+			<m:ListPanel selectable="false">
+				<m:ListItem styleName="{style.modify}">
+					<g:Label>Horizontal</g:Label>
+					<m:CheckBoxGroup ui:field="group1" vertical="false">
+						<m:CheckBox>iPhone</m:CheckBox>
+						<m:CheckBox>Android</m:CheckBox>
+						<m:CheckBox>BlackBerry</m:CheckBox>
+						<m:CheckBox>WP7</m:CheckBox>
+					</m:CheckBoxGroup>
+				</m:ListItem>
+				<m:ListItem styleName="{style.modify}">
+					<g:Label>Vertical</g:Label>
+					<m:CheckBoxGroup ui:field="group2">
+						<m:CheckBox>iPhone</m:CheckBox>
+						<m:CheckBox>Android</m:CheckBox>
+						<m:CheckBox>BlackBerry</m:CheckBox>
+						<m:CheckBox>WP7</m:CheckBox>
+					</m:CheckBoxGroup>
+				</m:ListItem>
+			</m:ListPanel>			
+		</m:ScrollPanel>
+	</g:HTMLPanel>	
+</ui:UiBinder> 

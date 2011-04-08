@@ -1,0 +1,6 @@
+lib
+classes
+deploy
+*~
+war/KitchenSink
+.gwt-tmp

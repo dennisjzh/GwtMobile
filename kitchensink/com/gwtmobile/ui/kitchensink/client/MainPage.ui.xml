@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel>
+			<g:Label>Hello GWT Mobile UI!</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel>
+			<m:ListPanel ui:field="list" showArrow="true">
+				<g:Label>Animations</g:Label>			
+				<g:Label>Panels</g:Label>			
+				<g:Label>Widgets</g:Label>			
+				<m:ListItem disabled="true" showArrow="false"><g:Label>Themes</g:Label></m:ListItem>			
+			</m:ListPanel>
+		</m:ScrollPanel>
+		
+	</g:HTMLPanel>	
+</ui:UiBinder> 

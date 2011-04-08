@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel leftButton="Back">
+			<g:Label>Widgets</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel>
+			<m:ListPanel ui:field="list" showArrow="false">
+				<g:Label>Button</g:Label>
+				<g:Label>Checkbox</g:Label>
+				<g:Label>Drop Down List</g:Label>
+				<g:Label>Flip Switch</g:Label>
+				<g:Label>Radio Button</g:Label>
+				<g:Label>Slider</g:Label>
+				<g:Label>Text Box</g:Label>
+			</m:ListPanel>
+		</m:ScrollPanel>
+		
+	</g:HTMLPanel>	
+</ui:UiBinder> 
