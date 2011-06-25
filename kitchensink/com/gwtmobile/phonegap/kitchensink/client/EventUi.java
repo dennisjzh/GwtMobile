@@ -71,24 +71,24 @@ public class EventUi extends Page {
 			}
 		});
 
-		Event.onBackKeyDown(new Callback() {			
+		Event.onBackButton(new Callback() {			
 			@Override
 			public void onEventFired() {
-				text.setHTML((new Date()).toString() + ": onBackKeyDown<br/>" + text.getHTML());
+				text.setHTML((new Date()).toString() + ": onBackButton<br/>" + text.getHTML());
 			}
 		});
 
-		Event.onMenuKeyDown(new Callback() {			
+		Event.onMenuButton(new Callback() {			
 			@Override
 			public void onEventFired() {
-				text.setHTML((new Date()).toString() + ": onMenuKeyDown<br/>" + text.getHTML());
+				text.setHTML((new Date()).toString() + ": onMenuButton<br/>" + text.getHTML());
 			}
 		});
 		
-		Event.onSearchKeyDown(new Callback() {			
+		Event.onSearchButton(new Callback() {			
 			@Override
 			public void onEventFired() {
-				text.setHTML((new Date()).toString() + ": onSearchKeyDown<br/>" + text.getHTML());
+				text.setHTML((new Date()).toString() + ": onSearchButton<br/>" + text.getHTML());
 			}
 		});
 		

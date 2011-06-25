@@ -17,65 +17,75 @@ package com.gwtmobile.phonegap.kitchensink.client;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
+import com.gwtmobile.phonegap.client.Storage.LocalStorage;
 import com.gwtmobile.ui.client.event.SelectionChangedEvent;
 import com.gwtmobile.ui.client.page.Page;
 
-public class MainUi extends Page {
+public class StorageUi extends Page {
 
-	private static MainUiUiBinder uiBinder = GWT.create(MainUiUiBinder.class);
+	private static StorageUiUiBinder uiBinder = GWT.create(StorageUiUiBinder.class);
+	
+	@UiField HTML text;
 
-	interface MainUiUiBinder extends UiBinder<Widget, MainUi> {
+	interface StorageUiUiBinder extends UiBinder<Widget, StorageUi> {
 	}
 
-	public MainUi() {
+	public StorageUi() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-
+	
     @UiHandler("list")
 	void onListSelectionChanged(SelectionChangedEvent e) {
     	switch (e.getSelection()) {
     	case 0:
-    		goTo(new AccelerometerUi());
+    		key();
     		break;
     	case 1:
-    		goTo(new CameraUi());
+    		setItem();
     		break;
     	case 2:
-    		goTo(new CompassUi());
+    		getItem();
     		break;
     	case 3:
-    		goTo(new ContactsUi());
+    		removeItem();
     		break;
     	case 4:
-    		goTo(new DeviceUi());
-    		break;
-    	case 5:
-    		goTo(new EventUi());
-    		break;
-    	case 6:
-    		goTo(new FileMgrUi());
-    		break;
-    	case 7:
-    		goTo(new GeolocationUi());
-    		break;
-    	case 8:
-    		goTo(new MediaUi());
-    		break;
-    	case 9:
-    		goTo(new NetworkUi());
-    		break;
-    	case 10:
-    		goTo(new NotificationUi());
-    		break;
-    	case 11:
-    		goTo(new PluginsUi());
-    		break;
-    	case 12:
-    		goTo(new StorageUi());
+    		clear();
     		break;
     	}
+    }
+    
+    private void key() {
+    	String key = LocalStorage.key(0);
+    	text.setHTML("Key name at location 0 '" + key + "'");
+    }
+
+    private void setItem() {
+    	String key = "key1";
+    	String value = "value1";
+    	LocalStorage.setItem(key, value);
+    	text.setHTML("Item set, Key: " + key + ", Value: " + value);
+    }
+
+    private void getItem() {
+    	String key = "key1";
+    	String value = LocalStorage.getItem(key);
+    	text.setHTML("Value on Key " + key + ": " + value);
+    }
+
+    private void removeItem() {
+    	String key = "key1";
+    	LocalStorage.removeItem(key);
+    	text.setHTML("Storage with key " + key + "removed");
+    }
+
+    private void clear() {
+    	LocalStorage.clear();
+    	text.setHTML("Storage cleared.");
     }
 
 }

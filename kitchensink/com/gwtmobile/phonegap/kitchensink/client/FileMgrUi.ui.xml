@@ -6,18 +6,15 @@
 	<ui:style>
 	</ui:style>
 	<g:HTMLPanel>
-		<p:PhoneGapHeaderPanel caption="Media"></p:PhoneGapHeaderPanel>
-		<m:ScrollPanel>
+		<p:PhoneGapHeaderPanel caption="FileMgr" document="file"></p:PhoneGapHeaderPanel>
+		<m:ScrollPanel styleName="Scroller">
 			<g:HTMLPanel styleName="Container">
-				<m:ListPanel ui:field="list">
-					<g:Label>Start Recording</g:Label>
-					<g:Label>Stop Recording</g:Label>
-					<g:Label>Play Back</g:Label>
-					<g:Label>Pause</g:Label>
-					<g:Label>Stop</g:Label>
-					<g:Label>Release</g:Label>
-				</m:ListPanel>
-				<g:HTML ui:field="text" styleName="Output"></g:HTML>
+				<g:HTMLPanel styleName="Container">
+					<m:ListPanel ui:field="list">
+						<g:Label>Directory</g:Label>
+						<g:Label>File</g:Label>
+					</m:ListPanel>
+				</g:HTMLPanel>
 			</g:HTMLPanel>
 		</m:ScrollPanel>
 	</g:HTMLPanel>

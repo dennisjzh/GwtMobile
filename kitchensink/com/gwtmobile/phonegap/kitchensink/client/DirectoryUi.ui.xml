@@ -36,35 +36,31 @@
 		}
 	</ui:style>
 	<g:HTMLPanel>
-		<p:PhoneGapHeaderPanel caption="File"></p:PhoneGapHeaderPanel>
+		<p:PhoneGapHeaderPanel caption="Directory" document="file"></p:PhoneGapHeaderPanel>
 <!-- 		<m:ScrollPanel> -->
 			<g:HTMLPanel styleName="Container">
 				<g:HTMLPanel styleName="Container {style.container}">
 					<m:ListPanel ui:field="list0" secondaryStyle="{style.left}">
-						<g:Label>Get File</g:Label>
+						<g:Label>Get Directory</g:Label>
 						<g:Label>Get Metadata</g:Label>
 						<g:Label>Is File</g:Label>
 						<g:Label>Is Directory</g:Label>
 						<g:Label>Full Path</g:Label>
-						<g:Label>File</g:Label>
 						<g:Label>Move To</g:Label>
 						<g:Label>Copy To</g:Label>
-						<g:Label>To URI</g:Label>
 					</m:ListPanel>
 					<m:ListPanel ui:field="list1" secondaryStyle="{style.right}">
+						<g:Label>To URI</g:Label>
 						<g:Label>Get Parent</g:Label>
-						<g:Label>Create Writer</g:Label>
-						<g:Label>Write</g:Label>
-						<g:Label>Truncate</g:Label>
-						<g:Label>Seek</g:Label>
-						<g:Label>Abort</g:Label>
-						<g:Label>Read As Data URL</g:Label>
-						<g:Label>Read As Text</g:Label>
+						<g:Label>Create Reader</g:Label>
 						<g:Label>Remove</g:Label>
+						<g:Label>Remove Recursively</g:Label>
+						<g:Label>Get File</g:Label>
+						<g:Label>Get Free Space</g:Label>
 					</m:ListPanel>
 				</g:HTMLPanel>
 				<m:ScrollPanel ui:field="scroller" secondaryStyle="Output">
-					<g:HTML ui:field="text" styleName="O1utput">Console</g:HTML>
+					<g:HTML ui:field="text">Console</g:HTML>
 				</m:ScrollPanel>
 			</g:HTMLPanel>
 <!-- 		</m:ScrollPanel> -->

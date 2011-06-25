@@ -17,6 +17,7 @@
 package com.gwtmobile.phonegap.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtmobile.ui.client.utils.Utils;
 
 
 
@@ -27,7 +28,12 @@ public class Network {
 	}
 
 	public static void isReachable(String reachableHostname, Callback callback, Options options) {
-		isReachable(reachableHostname, callback, options.getOptions());
+		if (Utils.isIOS()) {
+			isReachableIOS(reachableHostname, callback, options.getOptions());
+		}
+		else {
+			isReachable(reachableHostname, callback, options.getOptions());
+		}
 	}
 
 	private native static void isReachable(String reachableHostname, Callback callback, JavaScriptObject options) /*-{
@@ -37,6 +43,13 @@ public class Network {
 	    }, options);
 	}-*/;
 	
+	private native static void isReachableIOS(String reachableHostname, Callback callback, JavaScriptObject options) /*-{
+		$wnd.navigator.network.isReachable(reachableHostname, 
+		function(reachability) {
+	    	callback.@com.gwtmobile.phonegap.client.Network.Callback::onNetworkStatus(I)(reachability.code);
+	    }, options);
+	}-*/;
+
 	public interface Callback {
 		public void onNetworkStatus(int reachability);
 	}

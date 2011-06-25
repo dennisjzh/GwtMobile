@@ -38,23 +38,11 @@ public class Device {
 		return $wnd.device.version;
 	}-*/;
 
-	// below are Android specific APIs.
+	// below are Android specific APIs.	
 	
-	public native static void overrideBackButton() /*-{
-		if ($wnd.device && typeof $wnd.device.overrideBackButton == "function") {
-			$wnd.device.overrideBackButton();
-		}
-	}-*/;
-	
-	public native static void resetBackButton() /*-{
-		if ($wnd.device && typeof $wnd.device.resetBackButton == "function") {
-			$wnd.device.resetBackButton();
-		}
-	}-*/;
-
 	public native static void exitApp() /*-{
-		if ($wnd.device && typeof $wnd.device.exitApp == "function") {
-			$wnd.device.exitApp();
+		if ($wnd.app && typeof $wnd.app.exitApp == "function") {
+			$wnd.app.exitApp();
 		}
 	}-*/;
 

@@ -19,11 +19,13 @@ package com.gwtmobile.phonegap.client;
 import java.util.Date;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.gwtmobile.ui.client.utils.Utils;
 
 public class Geolocation {
 	
 	public static native void getCurrentPosition(Callback callback) /*-{
 		$wnd.navigator.geolocation.getCurrentPosition(function(position) {
+			$wnd.console.log("gwt getcurrentposition");
 	    	callback.@com.gwtmobile.phonegap.client.Geolocation.Callback::onSuccess(Lcom/gwtmobile/phonegap/client/Geolocation$Position;)(position);
 	    }, function(error) {
 	    	callback.@com.gwtmobile.phonegap.client.Geolocation.Callback::onError(Lcom/gwtmobile/phonegap/client/Geolocation$PositionError;)(error);
@@ -66,11 +68,20 @@ public class Geolocation {
 	
     	@SuppressWarnings("deprecation")
 		public final Date getTimestamp() {
-			return new Date(getTimestampNative());
+    		if (Utils.isIOS()) {
+    			return new Date((long) getTimestampDoubleNative());
+    		}
+    		else {
+    			return new Date(getTimestampStringNative());
+    		}
 		}	
     	
-    	private native final String getTimestampNative() /*-{
+    	private native final String getTimestampStringNative() /*-{
 			return this.timestamp;
+		}-*/;	
+
+    	private native final double getTimestampDoubleNative() /*-{
+			return this.timestamp * 1000;
 		}-*/;	
     }
 

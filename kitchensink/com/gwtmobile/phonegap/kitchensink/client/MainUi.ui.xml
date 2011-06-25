@@ -20,6 +20,8 @@
 				<g:Label>Media</g:Label>			
 				<g:Label>Network</g:Label>			
 				<g:Label>Notification</g:Label>			
+				<g:Label>Plugins</g:Label>			
+				<g:Label>Storage</g:Label>			
 			</m:ListPanel>
 		</m:ScrollPanel>
 	</g:HTMLPanel>

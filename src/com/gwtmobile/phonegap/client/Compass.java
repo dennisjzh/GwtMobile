@@ -57,7 +57,6 @@ public class Compass {
     
     public static class Options {
 
-    	@SuppressWarnings("unused")
 		private Options self = this;
 		private JavaScriptObject options = JavaScriptObject.createObject();
     	

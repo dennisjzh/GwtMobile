@@ -42,6 +42,30 @@ public class Media extends JavaScriptObject {
 		this.stop();
 	}-*/;
 	
+	public native final void release() /*-{
+		if ($wnd.navigator.userAgent.indexOf("Android") != -1) {
+			this.release();
+		} 
+	}-*/;
+
+	public native final void startRecord() /*-{
+		if (typeof this.startRecord == 'function') {
+			this.startRecord();
+		}
+		else {
+			this.startAudioRecord();
+		}
+	}-*/;
+
+	public native final void stopRecord() /*-{
+		if (typeof this.stopRecord == 'function') {
+			this.stopRecord();
+		}
+		else {
+			this.stopAudioRecord();
+		}
+	}-*/;
+
 	public native final void getCurrentPosition(PositionCallback callback) /*-{
 		this.getCurrentPosition(function(position) {
 			callback.@com.gwtmobile.phonegap.client.Media.PositionCallback::onSuccess(I)(position);

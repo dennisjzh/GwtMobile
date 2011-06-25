@@ -15,7 +15,7 @@
 					<g:Label>Clone Contact</g:Label>
 					<g:Label>Delete Contact</g:Label>
 				</m:ListPanel>
-				<g:Label>PhoneGap contact creation function is not working as of version 0.9.3. Only find function is tested at this point.</g:Label>
+				<g:Label>WARNING: this demo makes changes the contacts on your device. Run functions on this page at your own risk.</g:Label>
 				<g:HTML ui:field="text" styleName="Output">Console</g:HTML>
 			</g:HTMLPanel>
 		</m:ScrollPanel>

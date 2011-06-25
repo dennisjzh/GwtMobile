@@ -6,18 +6,17 @@
 	<ui:style>
 	</ui:style>
 	<g:HTMLPanel>
-		<p:PhoneGapHeaderPanel caption="Media"></p:PhoneGapHeaderPanel>
+		<p:PhoneGapHeaderPanel caption="Storage"></p:PhoneGapHeaderPanel>
 		<m:ScrollPanel>
 			<g:HTMLPanel styleName="Container">
 				<m:ListPanel ui:field="list">
-					<g:Label>Start Recording</g:Label>
-					<g:Label>Stop Recording</g:Label>
-					<g:Label>Play Back</g:Label>
-					<g:Label>Pause</g:Label>
-					<g:Label>Stop</g:Label>
-					<g:Label>Release</g:Label>
+					<g:Label>Get Key By Index</g:Label>
+					<g:Label>Set Item</g:Label>
+					<g:Label>Get Item</g:Label>
+					<g:Label>Remove Item</g:Label>
+					<g:Label>Clear</g:Label>
 				</m:ListPanel>
-				<g:HTML ui:field="text" styleName="Output"></g:HTML>
+				<g:HTML ui:field="text" styleName="Output">Console</g:HTML>
 			</g:HTMLPanel>
 		</m:ScrollPanel>
 	</g:HTMLPanel>

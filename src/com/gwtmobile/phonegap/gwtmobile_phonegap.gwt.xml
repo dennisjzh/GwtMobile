@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>    
-  <inherits name='com.google.gwt.user.User'/>
- 
-  <script src="phonegap-0.9.3.js"/>
-	
+  <inherits name='com.google.gwt.user.User'/>	
 </module>

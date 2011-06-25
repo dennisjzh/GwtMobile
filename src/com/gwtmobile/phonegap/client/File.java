@@ -65,49 +65,49 @@ public class File {
 
 	public static native void testFileExists(String fileName, FileMgrCallback callback) /*-{
 		$wnd.navigator.fileMgr.testFileExists(fileName, function(success){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onSuccess(Z)(success);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onSuccess(Z)(success);
 		}, function(error){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/File$FileError;)(error);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/FileMgr$FileError;)(error);
 		});
 	}-*/;
 
 	public static native void testDirectoryExists(String dirName, FileMgrCallback callback) /*-{
 		$wnd.navigator.fileMgr.testDirectoryExists(dirName, function(success){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onSuccess(Z)(success);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onSuccess(Z)(success);
 		}, function(error){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/File$FileError;)(error);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/FileMgr$FileError;)(error);
 		});
 	}-*/;
 
 	public static native void createDirectory(String dirName, FileMgrCallback callback) /*-{
 		$wnd.navigator.fileMgr.createDirectory(dirName, function(success){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onSuccess(Z)(success);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onSuccess(Z)(success);
 		}, function(error){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/File$FileError;)(error);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/FileMgr$FileError;)(error);
 		});
 	}-*/;
 
 	public static native void deleteDirectory(String dirName, FileMgrCallback callback) /*-{
 		$wnd.navigator.fileMgr.deleteDirectory(dirName, function(success){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onSuccess(Z)(success);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onSuccess(Z)(success);
 		}, function(error){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/File$FileError;)(error);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/FileMgr$FileError;)(error);
 		});
 	}-*/;
 
 	public static native void deleteFile(String fileName, FileMgrCallback callback) /*-{
 		$wnd.navigator.fileMgr.deleteFile(fileName, function(success){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onSuccess(Z)(success);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onSuccess(Z)(success);
 		}, function(error){
-			callback.@com.gwtmobile.phonegap.client.File.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/File$FileError;)(error);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FileMgrCallback::onError(Lcom/gwtmobile/phonegap/client/FileMgr$FileError;)(error);
 		});
 	}-*/;
 
 	public static native void getFreeDiskSpace(FreeDiskSpaceCallback callback) /*-{
 		$wnd.navigator.fileMgr.getFreeDiskSpace(function(freeDiskSpace){
-			callback.@com.gwtmobile.phonegap.client.File.FreeDiskSpaceCallback::onSuccess(D)(freeDiskSpace);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FreeDiskSpaceCallback::onSuccess(D)(freeDiskSpace);
 		}, function(error){
-			callback.@com.gwtmobile.phonegap.client.File.FreeDiskSpaceCallback::onError(Lcom/gwtmobile/phonegap/client/File$FileError;)(error);
+			callback.@com.gwtmobile.phonegap.client.FileMgr.FreeDiskSpaceCallback::onError(Lcom/gwtmobile/phonegap/client/FileMgr$FileError;)(error);
 		});
 	}-*/;
 
@@ -137,19 +137,19 @@ public class File {
 
 		public final native void onProgress(Callback callback) /*-{
 			this.onprogress = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;
 		
 		public final native void onAbort(Callback callback) /*-{
 			this.onabort = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;
 	
 		public final native void onError(Callback callback) /*-{
 			this.onerror = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;	
 	
@@ -170,19 +170,19 @@ public class File {
 		
 		public final native void onLoadStart(Callback callback) /*-{
 			this.onloadstart = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;
 	
 		public final native void onLoad(Callback callback) /*-{
 			this.onload = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;
 
 		public final native void onLoadEnd(Callback callback) /*-{
 			this.onloadend = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;
 
@@ -224,19 +224,19 @@ public class File {
 		
 		public final native void onWriteStart(Callback callback) /*-{
 			this.onwritestart = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;
 
 		public final native void onWrite(Callback callback) /*-{
 			this.onwrite = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;
 
 		public final native void onWriteEnd(Callback callback) /*-{
 			this.onwriteend = function(event) {
-				callback.@com.gwtmobile.phonegap.client.File.Callback::onEvent(Lcom/gwtmobile/phonegap/client/File$Event;)(event);
+				callback.@com.gwtmobile.phonegap.client.FileMgr.EventCallback::onEvent(Lcom/gwtmobile/phonegap/client/FileMgr$Event;)(event);
 			};
 		}-*/;
 

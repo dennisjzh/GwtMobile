@@ -9,7 +9,7 @@
 		<p:PhoneGapHeaderPanel ui:field="header" caption="Events"></p:PhoneGapHeaderPanel>
 		<m:ScrollPanel>
 			<g:HTMLPanel styleName="Container">
-				<g:Label>Note: onPause, onResume, onBackKeyDown, onMenuKeyDown and onSearchKeyDown events only work on an Android device.</g:Label>
+				<g:Label>Note: onBackButton, onMenuButton and onSearchButton events only work on an Android device.</g:Label>
 				<g:HTML ui:field="text" styleName="Output">Console</g:HTML>
 			</g:HTMLPanel>
 		</m:ScrollPanel>

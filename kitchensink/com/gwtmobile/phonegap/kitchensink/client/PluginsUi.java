@@ -19,17 +19,18 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Widget;
+import com.gwtmobile.phonegap.client.plugins.ChildBrowser;
 import com.gwtmobile.ui.client.event.SelectionChangedEvent;
 import com.gwtmobile.ui.client.page.Page;
 
-public class MainUi extends Page {
+public class PluginsUi extends Page {
 
-	private static MainUiUiBinder uiBinder = GWT.create(MainUiUiBinder.class);
+	private static PluginsUiUiBinder uiBinder = GWT.create(PluginsUiUiBinder.class);
 
-	interface MainUiUiBinder extends UiBinder<Widget, MainUi> {
+	interface PluginsUiUiBinder extends UiBinder<Widget, PluginsUi> {
 	}
 
-	public MainUi() {
+	public PluginsUi() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
@@ -37,43 +38,9 @@ public class MainUi extends Page {
 	void onListSelectionChanged(SelectionChangedEvent e) {
     	switch (e.getSelection()) {
     	case 0:
-    		goTo(new AccelerometerUi());
+    		ChildBrowser.showWebPage("http://www.phonegap.com", true);
     		break;
     	case 1:
-    		goTo(new CameraUi());
-    		break;
-    	case 2:
-    		goTo(new CompassUi());
-    		break;
-    	case 3:
-    		goTo(new ContactsUi());
-    		break;
-    	case 4:
-    		goTo(new DeviceUi());
-    		break;
-    	case 5:
-    		goTo(new EventUi());
-    		break;
-    	case 6:
-    		goTo(new FileMgrUi());
-    		break;
-    	case 7:
-    		goTo(new GeolocationUi());
-    		break;
-    	case 8:
-    		goTo(new MediaUi());
-    		break;
-    	case 9:
-    		goTo(new NetworkUi());
-    		break;
-    	case 10:
-    		goTo(new NotificationUi());
-    		break;
-    	case 11:
-    		goTo(new PluginsUi());
-    		break;
-    	case 12:
-    		goTo(new StorageUi());
     		break;
     	}
     }

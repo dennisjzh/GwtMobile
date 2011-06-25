@@ -28,6 +28,7 @@ import com.gwtmobile.phonegap.client.Geolocation.Position;
 import com.gwtmobile.phonegap.client.Geolocation.PositionError;
 import com.gwtmobile.ui.client.event.SelectionChangedEvent;
 import com.gwtmobile.ui.client.page.Page;
+import com.gwtmobile.ui.client.utils.Utils;
 
 public class GeolocationUi extends Page {
 
@@ -69,6 +70,7 @@ public class GeolocationUi extends Page {
 		Geolocation.getCurrentPosition(new Callback() {			
 			@Override
 			public void onSuccess(Position position) {
+				Utils.Console("geo position");
 				text.setHTML("Current Position<br/>Latitude: " + position.getCoords().getLatitude() + "<br/>" + 
 						"Longitude: " + position.getCoords().getLongitude() + "<br/>" +
 						"Altitude: " + position.getCoords().getAltitude() + "<br/>" +
