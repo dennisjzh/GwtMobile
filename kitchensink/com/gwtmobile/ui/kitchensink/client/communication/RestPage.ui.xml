@@ -1,0 +1,23 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:com.gwtmobile.ui.client.widgets">
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<m:HeaderPanel leftButton="Back">
+			<g:Label>REST</g:Label>			
+		</m:HeaderPanel>
+		<m:ScrollPanel>
+			<g:HTMLPanel styleName="Container">
+				<m:ListPanel ui:field="list">
+					<g:Label>Call Server with REST</g:Label>
+				</m:ListPanel>
+				<g:HTML ui:field="text" styleName="Output">
+					To run this demo on the browser, the Same Origin Policy needs to be turned off 
+					on the browser for the communication to work.
+				</g:HTML>
+			</g:HTMLPanel>
+		</m:ScrollPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

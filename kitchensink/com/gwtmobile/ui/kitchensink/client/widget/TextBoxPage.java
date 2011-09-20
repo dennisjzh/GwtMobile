@@ -18,10 +18,8 @@ package com.gwtmobile.ui.kitchensink.client.widget;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtmobile.ui.client.page.Page;
-import com.gwtmobile.ui.client.utils.Utils;
 
 public class TextBoxPage extends Page{
 
@@ -37,8 +35,6 @@ public class TextBoxPage extends Page{
 	
 	@Override
 	public void goBack(Object returnValue) {
-		Element focus = Utils.getActiveElement();
-		focus.blur();
 		super.goBack(returnValue);
 	}
 }

@@ -21,30 +21,57 @@ import com.google.gwt.dom.client.Document;
 import com.gwtmobile.ui.client.utils.Utils;
 
 
-public class RadioButton extends com.google.gwt.user.client.ui.RadioButton {
+public class RadioButton extends com.google.gwt.user.client.ui.RadioButton 
+	implements IsGwtMobileWidget {
 
+    private IsGwtMobileWidgetHelper _widgetHelper = new IsGwtMobileWidgetHelper();
+	
 	public RadioButton() {
 		super(null);
 		if (Utils.isAndroid() && Utils.isWVGA()) {
+			setStyleName("RadioButton");
 			DivElement div = Document.get().createDivElement();
 			this.getElement().insertFirst(div);
 		}
 	}
+	
+	@Override
+	protected void onLoad() {
+		super.onLoad();
+		_widgetHelper.CheckInitialLoad(this);
+	}
 
 	@Override
 	public void setValue(Boolean value) {
-		setValue(value, false);
+		setValue(value, true);
 	}
 	
 	@Override
 	public void setValue(Boolean checked, boolean fireEvents) {
 		super.setValue(checked, fireEvents);
+		updateCheckedStyle(checked);
+	}
+
+	protected void updateCheckedStyle(Boolean checked) {
 		if (checked) {
 			addStyleName("Selected");
 		}
 		else {
 			removeStyleName("Selected");       
 		}
+	}
+	
+	@Override
+	public void onInitialLoad() {
+	}
+
+	@Override
+	public void onTransitionEnd() {
+	}
+
+	@Override
+	public void setSecondaryStyle(String style) {
+		_widgetHelper.setSecondaryStyle(this, style);
 	}
 
 }

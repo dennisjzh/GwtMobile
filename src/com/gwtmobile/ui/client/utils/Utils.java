@@ -90,7 +90,9 @@ public class Utils {
     	}
     	String FromControls = "BUTTON INPUT SELECT TEXTAREA";
     	String nodeName = ele.getNodeName().toUpperCase();
+    	String roleName = ele.getAttribute("role").toUpperCase();
     	return FromControls.contains(nodeName) 
+    		|| roleName.length() > 0 && FromControls.contains(roleName)
     		|| isHtmlFormControl(ele.getParentElement());
     }
     
@@ -172,6 +174,14 @@ public class Utils {
         return index;
     }
     
-
+    public static boolean isSubclassOf(Class<?> class1, Class<?> class2) {
+    	while (class1 != null) {
+    		if (class1 == class2) {
+    			return true;
+    		}
+    		class1 = class1.getSuperclass();
+    	}
+    	return false;
+    }
 
 }

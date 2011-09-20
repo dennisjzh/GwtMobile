@@ -41,8 +41,8 @@ public class Device {
 	// below are Android specific APIs.	
 	
 	public native static void exitApp() /*-{
-		if ($wnd.app && typeof $wnd.app.exitApp == "function") {
-			$wnd.app.exitApp();
+		if ($wnd.navigator.app && typeof $wnd.navigator.app.exitApp == "function") {
+			$wnd.navigator.app.exitApp();
 		}
 	}-*/;
 

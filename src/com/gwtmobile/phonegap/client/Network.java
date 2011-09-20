@@ -17,60 +17,47 @@
 package com.gwtmobile.phonegap.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtmobile.ui.client.utils.Utils;
 
 
 
 public class Network {
-
-	public static void isReachable(String reachableHostname, Callback callback) {
-		isReachable(reachableHostname, callback, (JavaScriptObject)null);
-	}
-
-	public static void isReachable(String reachableHostname, Callback callback, Options options) {
-		if (Utils.isIOS()) {
-			isReachableIOS(reachableHostname, callback, options.getOptions());
-		}
-		else {
-			isReachable(reachableHostname, callback, options.getOptions());
-		}
-	}
-
-	private native static void isReachable(String reachableHostname, Callback callback, JavaScriptObject options) /*-{
-		$wnd.navigator.network.isReachable(reachableHostname, 
-		function(reachability) {
-	    	callback.@com.gwtmobile.phonegap.client.Network.Callback::onNetworkStatus(I)(reachability);
-	    }, options);
+	
+	public native static ConnectionType getConnectionType() /*-{
+		return $wnd.navigator.network.connection.type;
 	}-*/;
 	
-	private native static void isReachableIOS(String reachableHostname, Callback callback, JavaScriptObject options) /*-{
-		$wnd.navigator.network.isReachable(reachableHostname, 
-		function(reachability) {
-	    	callback.@com.gwtmobile.phonegap.client.Network.Callback::onNetworkStatus(I)(reachability.code);
-	    }, options);
-	}-*/;
-
-	public interface Callback {
-		public void onNetworkStatus(int reachability);
-	}
+	public static class ConnectionType extends JavaScriptObject {
+		
+		protected ConnectionType() {};
+		
+		public final native boolean isUnknown() /*-{
+			return this == $wnd.Connection.UNKNOWN;
+		}-*/;
 	
-	public static class NetworkStatus {
-		public static final int NOT_REACHABLE = 0;
-		public static final int REACHABLE_VIA_CARRIER_DATA_NETWORK = 1;
-		public static final int REACHABLE_VIA_WIFI_NETWORK = 2;
-	}
-	
-    public static class Options {
-    	Options self = this;
-    	JavaScriptObject options = JavaScriptObject.createObject();
-    	
-    	public native Options isIpAddress(boolean b) /*-{
-			this.@com.gwtmobile.phonegap.client.Network.Options::options.isIpAddress = b;
-			return this.@com.gwtmobile.phonegap.client.Network.Options::self;
+		public final native boolean isEthernet() /*-{
+			return this == $wnd.Connection.ETHERNET;
 		}-*/;
 
-		private JavaScriptObject getOptions() {
-			return options;    		
-    	}
-    }
+		public final native boolean isWifi() /*-{
+			return this == $wnd.Connection.WIFI;
+		}-*/;
+
+		public final native boolean isCell2G() /*-{
+			return this == $wnd.Connection.CELL_2G;
+		}-*/;
+
+		public final native boolean isCell3G() /*-{
+			return this == $wnd.Connection.CELL_3G;
+		}-*/;
+
+		public final native boolean isCell4G() /*-{
+			return this == $wnd.Connection.CELL_4G;
+		}-*/;
+
+		public final native boolean isNone() /*-{
+			return this == $wnd.Connection.NONE;
+		}-*/;
+	
+	}
+	
 }

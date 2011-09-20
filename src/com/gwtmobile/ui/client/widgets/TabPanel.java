@@ -28,6 +28,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtmobile.ui.client.page.Transition;
 import com.gwtmobile.ui.client.utils.Utils;
 
+//FIXME: extends PanelBase
 public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
 
     private FlowPanel _panel = new FlowPanel();
@@ -50,8 +51,9 @@ public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
     }
     
     @Override
-    protected void onInitialLoad() {
+	public void onInitialLoad() {
     	if (_tabHeaderPanel.getWidgetCount() > 0) {
+    		//FIXME:allow a different default tab to be set?
             selectTab(0);
     	}
     }
@@ -76,13 +78,8 @@ public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
         _selectedTabIndex = index;
     }
 
-    private Tab unselectCurrentTab() {
-    	if (_selectedTabIndex == -1) {
-    		return null;
-    	}
-		Tab tab = (Tab) _tabHeaderPanel.getWidget(_selectedTabIndex);
-    	tab.removeStyleName("Selected");
-        return tab;
+    public int getSelectedTabIndex() {
+        return _selectedTabIndex;
     }
 
 	@Override
@@ -93,22 +90,6 @@ public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
 		}
 	}
 	
-    private int getClickedTabHeaderIndex(ClickEvent e) {
-        Element div = Element.as(e.getNativeEvent().getEventTarget());
-        if (div == _tabHeaderPanel.getElement()) {
-        	Utils.Console("Is click on tab header working? " + e.toString());
-        	return -1;
-        }
-        while (div.getParentElement() != _tabHeaderPanel.getElement()) {
-            div = div.getParentElement();
-        }
-        int index = DOM.getChildIndex(
-        		(com.google.gwt.user.client.Element)_tabHeaderPanel.getElement(), 
-        		(com.google.gwt.user.client.Element)div);
-        return index;
-    }
-
-
     @Override
     public void clear() {
     	_panel.clear();
@@ -122,6 +103,30 @@ public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
     @Override
     public boolean remove(Widget w) {
         return _panel.remove(w);
+    }
+    
+    private Tab unselectCurrentTab() {
+    	if (_selectedTabIndex == -1) {
+    		return null;
+    	}
+		Tab tab = (Tab) _tabHeaderPanel.getWidget(_selectedTabIndex);
+    	tab.removeStyleName("Selected");
+        return tab;
+    }
+
+    private int getClickedTabHeaderIndex(ClickEvent e) {
+        Element div = Element.as(e.getNativeEvent().getEventTarget());
+        if (div == _tabHeaderPanel.getElement()) {
+        	Utils.Console("Is click on tab header working? " + e.toString());
+        	return -1;
+        }
+        while (div.getParentElement() != _tabHeaderPanel.getElement()) {
+            div = div.getParentElement();
+        }
+        int index = DOM.getChildIndex(
+        		(com.google.gwt.user.client.Element)_tabHeaderPanel.getElement(), 
+        		(com.google.gwt.user.client.Element)div);
+        return index;
     }
 
 }

@@ -180,22 +180,22 @@ implements HasWidgets, DragEventsHandler, SwipeEventsHandler {
 			return;
 		}
 		
-		//TODO: simplify the swipe distance calculation.
-		double speed = e.getSpeed() * 2000;
-		double dicstanceFactor = 0.5;
-		double timeFactor = 2;
-		long distance = (long) (speed / Math.abs(speed)) * Math.round(speed * speed * dicstanceFactor / 1000);
-		long time =  Math.round(speed * speed * timeFactor / 2000);
+		double speed = e.getSpeed();		
+		double timeFactor = 3000;
+		long time =  (long) Math.abs(speed * timeFactor);
+		double dicstanceFactor = 0.25;
+		long distance = (long) (speed * time * dicstanceFactor);
+		//Utils.Console("speed " + speed + " time " + time + " distance " + distance + " current " + current);
 		current += distance;
 		if (current > 0) {//exceed top boundary
 			double timeAdj = 1 - (double)current / distance;
-			time = (long) (time * timeAdj * timeAdj);
+			time = (long) (time * timeAdj);
 			current = 0;
 		}
 		else if (-current + panelHeight > widgetHeight) { //exceed bottom boundary
 			long bottom = panelHeight - widgetHeight;
 			double timeAdj = 1 - (double)(current - bottom) / distance;
-			time = (long) (time * timeAdj * timeAdj);
+			time = (long) (time * timeAdj);
 			current = bottom;
 		}
 		Utils.setTransitionDuration(widgetEle, time);
@@ -210,6 +210,9 @@ implements HasWidgets, DragEventsHandler, SwipeEventsHandler {
 	public void add(Widget w) {
 		assert _panel.getWidgetCount()  == 0 : "Can only add one widget to ScrollPanel.";
 		super.add(w);
+		if (Utils.isIOS()) {
+			Utils.setTranslateY(w.getElement(), 0); //anti-flickering on iOS.
+		}
 	}
 	
 	private int getStyleTop() {

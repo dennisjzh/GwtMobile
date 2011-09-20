@@ -22,9 +22,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtmobile.phonegap.client.Network;
-import com.gwtmobile.phonegap.client.Network.Callback;
-import com.gwtmobile.phonegap.client.Network.NetworkStatus;
-import com.gwtmobile.phonegap.client.Network.Options;
+import com.gwtmobile.phonegap.client.Network.ConnectionType;
 import com.gwtmobile.ui.client.event.SelectionChangedEvent;
 import com.gwtmobile.ui.client.page.Page;
 
@@ -45,22 +43,22 @@ public class NetworkUi extends Page {
 	void onListSelectionChanged(SelectionChangedEvent e) {
     	switch (e.getSelection()) {
     	case 0:
-    		isReachable();
+    		getConnectionType();
     		break;
     	}
     }
 
-    public void isReachable() {
-		Network.isReachable("google.com", new Callback() {			
-			@Override
-			public void onNetworkStatus(int reachability) {
-				text.setHTML("Network Status:<br/>" +
-						(reachability == NetworkStatus.NOT_REACHABLE ? "NOT_REACHABLE" : 
-						 reachability == NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK ? "REACHABLE_VIA_CARRIER_DATA_NETWORK" : 
-						 reachability == NetworkStatus.REACHABLE_VIA_WIFI_NETWORK ? "REACHABLE_VIA_WIFI_NETWORK" : 
-						 "Unknown network status " + reachability));
-			}
-		}, new Options().isIpAddress(false));
+    private void getConnectionType() {
+    	ConnectionType type = Network.getConnectionType();
+		text.setHTML("type=" + type.toString() + "<br/>" + 
+				"UNKNOWN:" + type.isUnknown() + "<br/>" +  	
+				"ETHERNET:" + type.isEthernet() + "<br/>" +  	
+				"WIFI:" + type.isWifi() + "<br/>" +  	
+				"CELL_2G:" + type.isCell2G() + "<br/>" +  	
+				"CELL_3G:" + type.isCell3G() + "<br/>" +  	
+				"CELL_4G:" + type.isCell4G() + "<br/>" +  	
+				"NONE:" + type.isNone() + "<br/>" 	
+		);
 	}
 
 }

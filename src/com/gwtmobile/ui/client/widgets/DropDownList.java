@@ -76,7 +76,7 @@ public class DropDownList extends PanelBase
 
 	@Override
 	public void add(Widget w) {
-		assert w.getClass() == DropDownItem.class : "Can only contain DropDownItem in DropDownList.";
+		assert w instanceof DropDownItem : "Can only contain DropDownItem in DropDownList.";
 		DropDownItem item = (DropDownItem) w;
 		_listBox.addItem(item.getText(), item.getValue());
 	}

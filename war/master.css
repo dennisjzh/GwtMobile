@@ -51,9 +51,8 @@ html {
 	-webkit-box-align: center;
 	-webkit-box-pack: justify;
 	padding: 0.3em 0.3em;
-	margin-bottom: 0.3em;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e1f21), color-stop(0.98, #272729), color-stop(0.98, black), to(black));
-	-webkit-box-shadow: 0px 0px 12px black;
+	-webkit-box-shadow: 0 0 .6em black;
 	text-shadow: black 0.1em 0.1em 0.1em;
 	z-index: 1;	
 }
@@ -70,6 +69,13 @@ html {
 
 .HeaderPanel > div:first-child, .HeaderPanel > div:last-child {
 	min-width:3em;
+}
+
+.HeaderPanel > div:nth-child(2) {
+	-webkit-box-flex: 1;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
 }
 
 /************** Button **************/
@@ -170,8 +176,7 @@ html {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
-	margin-top: -.3em;	/* same value as header panel */
-	padding-top: .5em;
+	padding-top: .3em;
 	padding-bottom: .5em;
 }
 
@@ -202,7 +207,7 @@ html {
 	border-top:0px;
 	border-top-left-radius: 0.4em 0.4em;
 	border-top-right-radius: 0.4em 0.4em;
-	-webkit-box-shadow: rgba(0, 0, 0, 1) 0em 0em 0.5em;
+	-webkit-box-shadow: rgba(0, 0, 0, .5) 0em -.2em 0.2em;
 } 
 
 .ListPanel > div:last-child {
@@ -212,6 +217,10 @@ html {
 	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0em 0.2em 0.2em;
 } 
 
+.ListPanel > div:only-child {
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0em 0em 0.5em;
+}
+
 .ListPanel > div.Pressed {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
 		from(lightgreen), color-stop(0.5, #298C08), color-stop(0.5, darkgreen), to(darkgreen));
@@ -219,6 +228,11 @@ html {
 
 .ListPanel > div.Disabled {
 	color: gray;
+}
+
+/* anti-flickering */
+.iOS .ScrollPanel > .ListPanel > div {
+    -webkit-transform: translate3d(0px, 0px, 0px);
 }
 
 /********** Slide Panel **********/
@@ -239,6 +253,7 @@ html {
 .Chevron {
 	position: relative;
 	margin-right: 0.5em;
+	padding-left: 0.5em;
 	top: -0.6em;	
 }
 
@@ -271,7 +286,12 @@ html {
 .TabPanel > div:first-child {	/*tab header panel*/
 	display: -webkit-box;
 	-webkit-box-orient: horizontal;
-	border-bottom: 0.3em solid #BDBDBD;
+	border-bottom: 0.2em solid #BDBDBD;
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0 0 1em;
+	font-size: .8em;
+	background: #333;
+	position: relative;
+	z-index: 1;
 }
 
 .TabPanel > div:first-child > div {		/*tab header*/
@@ -279,7 +299,7 @@ html {
 	display: -webkit-box;
 	-webkit-box-align: center;
 	-webkit-box-pack: center;
-	height: 2em;
+	min-height: 2em;
 	border-left: 1px solid #666666;
 	border-top: 1px solid #666666;
 	border-bottom: 1px solid #333333;
@@ -310,7 +330,6 @@ html {
 .TabPanel > div:last-child {			/*tab content panel*/
 	position: relative;
 	-webkit-box-flex: 1;
-	margin: 0.2em;
 }
 
 .TabPanel > div:last-child > div {		/*tab content*/
@@ -362,7 +381,7 @@ html {
 .Accordion > div > div:last-child { /* content */
 	overflow: hidden;
 	padding:.5em;
-	color: gray;
+	color: black;
 	background:#e3e3e3;
 	-webkit-transition-property: height;
 	-webkit-transition-duration: 200ms;
@@ -378,6 +397,7 @@ html {
 .Accordion > div.Collapse > div:last-child {
 	padding-top: 0;
 	padding-bottom: 0;
+	height: 0 !important;
 }
 
 .AccordionArrow {
@@ -497,11 +517,11 @@ html {
 /* Android native check box and radio button are too small in WVGA resolution */
 
 .WVGA .CheckBoxGroup > span > input,
-.WVGA .RadioButtonGroup > span > input {
+.WVGA .RadioButton > input {
 	display: none;
 }
 
-.WVGA .RadioButtonGroup > span > div {
+.WVGA .RadioButton > div {
 	width: 1.2em;
 	height: 1.2em;
 	margin: 0 .4em 0 .4em;
@@ -514,7 +534,7 @@ html {
 	-webkit-box-shadow:0 0 .1em #444;
 }
 
-.WVGA .RadioButtonGroup > span.Selected > div {
+.WVGA .RadioButton.Selected > div {
 	background-image:
 		-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 16,
 			from(lightgreen),
@@ -794,4 +814,18 @@ html {
 .Desktop .DropDownList.Focus > div:nth-child(2),
 .Android .DropDownList.Focus > div:nth-child(2) {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lightgreen), to(darkgreen));
+}
+
+/******************* Horizontal Panel *************/
+.HorizontalPanel {
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: center;
+}
+
+
+/******************* Vertical Panel *************/
+.VerticalPanel {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
 }

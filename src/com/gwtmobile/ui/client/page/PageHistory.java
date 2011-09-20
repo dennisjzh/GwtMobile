@@ -12,53 +12,54 @@
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License.
+ * 
+ * Authors:
+ * 	Zhihua (Dennis) Jiang
+ * 	ash
  */
+
 
 package com.gwtmobile.ui.client.page;
 
-import java.util.Stack;
+import com.google.gwt.core.client.GWT;
 
-public class PageHistory {
+/**
+ * Represents a history navigation model that can be for moving between
+ * pages.
+ */
+public interface PageHistory {
+	
+	public static PageHistory Instance = GWT.create(SerialPageHistory.class);
+	
+	/**
+	 * Light-weight page mapping interface that is used to retrieve page
+	 * implementations as required. Note, implementations are required
+	 * to accommodate caching strategies if required.
+	 */
+	public interface Mapper {
+		public Page getPage(String pageName);
+	}
 
-	private static Stack<Page> _history = new Stack<Page>();
-	private static Object _returnValue; 
+	public void add(Page page);
 	
-	public static void add(Page page) {
-		_history.push(page);
-	}
+	public void navigate(String token);
 	
-	public static Page current() {
-		if (_history.isEmpty()) {
-			return null;
-		}
-		return _history.peek();
-	}
+	public void navigate(String pageName, String params);
+
+	public Page current();
+
+	public Page from();
+
+	public Page back();
 	
-	public static Page from() {
-		int size =_history.size();
-		if (size < 2) {
-			return null;
-		}
-		return _history.elementAt(size - 2);
-	}
+	public void goBack(Page fromPage, Object returnValue);
+
+	public void setMapper(Mapper mapper);
+	
+	public void startUp(Object param);
+	
+	public void setReturnValue(Object returnValue);
     
-	public static Page back(Object returnValue) {
-        _returnValue = returnValue;
-        return back();
-    }
-    
-	public static Page back() {
-        if (_history.isEmpty()) {
-            return null;
-        }
-        return _history.pop();
-    }
-    
-	public static void setReturnValue(Object returnValue) {
-        _returnValue = returnValue;
-    }
-    
-	public static Object getReturnValue() {
-        return _returnValue;
-    }
+	public Object getReturnValue();
+
 }

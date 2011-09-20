@@ -13,6 +13,7 @@
 					<m:ListPanel ui:field="list">
 						<g:Label>Directory</g:Label>
 						<g:Label>File</g:Label>
+						<g:Label>File Transfer</g:Label>
 					</m:ListPanel>
 				</g:HTMLPanel>
 			</g:HTMLPanel>

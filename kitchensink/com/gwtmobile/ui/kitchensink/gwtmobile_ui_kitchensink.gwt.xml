@@ -4,12 +4,16 @@
 	<inherits name="com.google.gwt.user.User" />
 		
 	<source path="client" />
-	<entry-point
-		class="com.gwtmobile.ui.kitchensink.client.KitchenSink">
-	</entry-point>
+	
+	<stylesheet src="kitchensink.css"/>
+	
+	<entry-point class="com.gwtmobile.ui.kitchensink.client.KitchenSink" />
 	
 	<!-- Inherit GWT Mobile UI module -->
 	<inherits name='com.gwtmobile.ui.gwtmobile_ui'/>
+	
+	<!-- Inherits the Restlet core module -->
+	<inherits name='org.restlet.Restlet' />
 	
 	<!-- Only compile WebKit permutation (for now) -->
 	<set-property name="user.agent" value="safari"/>

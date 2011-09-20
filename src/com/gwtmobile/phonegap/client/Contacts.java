@@ -25,7 +25,7 @@ import com.google.gwt.core.client.JsArrayString;
 public class Contacts {
 	
 	public static final native Contact newInstance() /*-{
-		return new $wnd.navigator.service.contacts.create();
+		return new $wnd.navigator.contacts.create();
 	}-*/;
 
 	public static final void find(ContactFields fields, ContactFindCallback callback, ContactFindOptions options) {
@@ -33,7 +33,7 @@ public class Contacts {
 	}
 	
 	private static final native void find(JsArrayString fields, ContactFindCallback callback, JavaScriptObject options) /*-{
-		$wnd.navigator.service.contacts.find(fields, function(contacts) {
+		$wnd.navigator.contacts.find(fields, function(contacts) {
 			callback.@com.gwtmobile.phonegap.client.Contacts.ContactFindCallback::onSuccess(Lcom/google/gwt/core/client/JsArray;)(contacts);
 		}, function(error) {
 			callback.@com.gwtmobile.phonegap.client.Contacts.ContactFindCallback::onError(Lcom/gwtmobile/phonegap/client/Contacts$ContactError;)(error);

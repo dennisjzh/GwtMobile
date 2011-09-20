@@ -19,6 +19,10 @@ package com.gwtmobile.ui.client.widgets;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import com.google.gwt.event.logical.shared.HasValueChangeHandlers;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
@@ -27,14 +31,15 @@ import com.gwtmobile.ui.client.event.SwipeEvent;
 import com.gwtmobile.ui.client.event.SwipeEventsHandler;
 import com.gwtmobile.ui.client.page.Transition;
 
-public class SlidePanel extends WidgetBase implements HasWidgets, SwipeEventsHandler {
+//FIXME: inherit from PanelBase
+public class SlidePanel extends WidgetBase implements HasWidgets, SwipeEventsHandler, HasValueChangeHandlers<Boolean> {
 
     protected FlowPanel _panel = new FlowPanel();
     protected int _count = 0;
     protected int _current = 0;
     protected SlideProvider _slideProvider = null;
     protected ArrayList<Widget> _slides = new ArrayList<Widget>();
-
+    protected boolean _rotate = false;
 
     public SlidePanel() {
         initWidget(_panel);
@@ -58,7 +63,7 @@ public class SlidePanel extends WidgetBase implements HasWidgets, SwipeEventsHan
 	}
 
 	@Override
-    protected void onInitialLoad() {
+	public void onInitialLoad() {
     	super.onInitialLoad();
 		_current = 0;
     	Slide slide = getSlide(_current);
@@ -106,23 +111,41 @@ public class SlidePanel extends WidgetBase implements HasWidgets, SwipeEventsHan
 	
 	public void next() {
 		if (_current >= getSlideCount() - 1) {
-			return;
+			if (!_rotate) {
+				return;
+			} else {
+				_current = -1;
+			}
 		}
 		_current++;
-    	Slide to = getSlide(_current);
+    	moveNext();
+	}
+
+	protected void moveNext() {
+		Slide to = getSlide(_current);
     	Slide from = (Slide) _panel.getWidget(0);
     	Transition transition = Transition.SLIDE;
+    	ValueChangeEvent.fire(this, true);
     	transition.start(from, to, _panel, false);
 	}
 
 	public void previous() {
 		if (_current <= 0) {
-			return;
+			if (!_rotate) {
+				return;
+			} else {
+				_current = getSlideCount();
+			}
 		}
 		_current--;
+		movePrevious();
+	}
+
+	protected void movePrevious() {
 		Slide to = getSlide(_current);
     	Slide from = (Slide) _panel.getWidget(0);
     	Transition transition = Transition.SLIDE;
+    	ValueChangeEvent.fire(this, false);
     	transition.start(from, to, _panel, true);
 	}
 
@@ -158,9 +181,26 @@ public class SlidePanel extends WidgetBase implements HasWidgets, SwipeEventsHan
 		return _slides.remove(w);
 	}
 	
+	public void setRotate(boolean rotate)
+	{
+		_rotate = rotate;
+	}
+	
+	public boolean isRotate()
+	{
+	    return _rotate;
+	}
+	
+	
 	/********************* interface SlideProvider *******************/
 
 	public interface SlideProvider {
 		Slide loadSlide(int index);
+	}
+
+	@Override
+	public HandlerRegistration addValueChangeHandler(
+			ValueChangeHandler<Boolean> handler) {
+		return this.addHandler(handler, ValueChangeEvent.getType());
 	}
 }

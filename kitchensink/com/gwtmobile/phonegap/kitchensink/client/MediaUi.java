@@ -53,6 +53,9 @@ public class MediaUi extends Page {
 		if (Utils.isAndroid()) {
 			src = "myrecording.mp3";
 		}
+		else {
+			src = "abcsong.wav";
+		}
 		media = Media.newInstance(src, new Callback() {			
 			@Override
 			public void onSuccess() {

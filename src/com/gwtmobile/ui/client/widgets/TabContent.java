@@ -21,6 +21,7 @@ import java.util.Iterator;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
+import com.gwtmobile.ui.client.utils.Utils;
 
 public class TabContent extends WidgetBase implements HasWidgets {
 
@@ -49,4 +50,15 @@ public class TabContent extends WidgetBase implements HasWidgets {
 	public boolean remove(Widget w) {
 		return _panel.remove(w);
 	}
+	
+	@Override
+	public void onTransitionEnd() {
+		for (int i = 0; i < _panel.getWidgetCount(); i++) {
+			Widget w = _panel.getWidget(i);
+			if (Utils.isSubclassOf(w.getClass(), WidgetBase.class)) {
+				((WidgetBase) w).onTransitionEnd();
+			}
+		}
+	}
+
 }

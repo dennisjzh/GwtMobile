@@ -42,6 +42,9 @@ public class FileMgrUi extends Page {
     	case 1:
     		goTo(new FileUi());
     		break;
+    	case 2:
+    		goTo(new FileTransferUi());
+    		break;
     	}
     }
 }

@@ -29,10 +29,16 @@ public class Transition implements EventListener {
 	}
 	
 	// No transition
-	public static void start(WidgetBase from, WidgetBase to, HasWidgets parent) {
-		parent.remove(from);
-		parent.add(to);
-		to.onTransitionEnd();
+	public static void start(final WidgetBase from, final WidgetBase to, final HasWidgets parent) {
+		new Timer() {
+			@Override
+			public void run() {
+				parent.remove(from);
+				parent.add(to);
+				to.onTransitionEnd();
+			}
+			
+		}.schedule(1);
 	}
 	
 	public void start(WidgetBase from, WidgetBase to, HasWidgets parent, boolean reverse) {

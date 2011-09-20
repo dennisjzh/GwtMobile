@@ -73,11 +73,11 @@ public class KitchenSink implements EntryPoint {
 	}
 	
     public void onBackKeyDown() {
-    	if (PageHistory.from() == null) {
+    	if (PageHistory.Instance.from() == null) {
     		Device.exitApp();    		
     	}
     	else {
-    		if (!PageHistory.current().getClass().toString().endsWith(".EventUi")) {
+    		if (!PageHistory.Instance.current().getClass().toString().endsWith(".EventUi")) {
     			// emulate click on the header back button for page transition to show.
             	emulateClickOnBackButton();    	
     		}
@@ -85,7 +85,7 @@ public class KitchenSink implements EntryPoint {
     }
 
 	protected void emulateClickOnBackButton() {
-		HTMLPanel current = (HTMLPanel) PageHistory.current().getWidget();
+		HTMLPanel current = (HTMLPanel) PageHistory.Instance.current().getWidget();
 		HeaderPanel header = (HeaderPanel) current.getWidget(0);
 		Button left = header.getLeftButton();
 		NativeEvent event = Document.get().createClickEvent(1, 1, 1, 1, 1, false, false, false, false);

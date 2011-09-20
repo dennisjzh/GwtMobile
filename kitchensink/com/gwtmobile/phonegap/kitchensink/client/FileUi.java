@@ -388,7 +388,7 @@ public class FileUi extends Page {
 							}
 						};
 						text.setText("");
-						FileReader reader = FileMgr.newReaderInstance();
+						FileReader reader = FileMgr.newFileReader();
 						reader.onLoad(callback);
 						reader.onLoadStart(callback);
 						reader.onLoadEnd(callback);
@@ -424,7 +424,7 @@ public class FileUi extends Page {
 							}
 						};
 						text.setText("");
-						FileReader reader = FileMgr.newReaderInstance();
+						FileReader reader = FileMgr.newFileReader();
 						reader.onLoad(callback);
 						reader.onLoadStart(callback);
 						reader.onLoadEnd(callback);

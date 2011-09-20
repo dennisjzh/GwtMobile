@@ -92,6 +92,20 @@ public class EventUi extends Page {
 			}
 		});
 		
+		Event.onOnline(new Callback() {			
+			@Override
+			public void onEventFired() {
+				text.setHTML((new Date()).toString() + ": onOnline<br/>" + text.getHTML());
+			}
+		});
+		
+		Event.onOffline(new Callback() {			
+			@Override
+			public void onEventFired() {
+				text.setHTML((new Date()).toString() + ": onOffline<br/>" + text.getHTML());
+			}
+		});
+		
 	}
 	
 	@Override

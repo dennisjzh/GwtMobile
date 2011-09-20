@@ -33,26 +33,6 @@ public class Notification {
 	    title, buttonLabels);
 	}-*/;
 	
-    public static native void activityStart() /*-{
-	    $wnd.navigator.notification.activityStart();
-	}-*/;
-
-    public static native void activityStop() /*-{
-	    $wnd.navigator.notification.activityStop();
-	}-*/;
-
-    public static native void progressStart(String title, String message) /*-{
-	    $wnd.navigator.notification.progressStart(title, message);
-	}-*/;
-
-    public static native void progressValue(int value) /*-{
-	    $wnd.navigator.notification.progressValue(value);
-	}-*/;
-
-    public static native void progressStop() /*-{
-	    $wnd.navigator.notification.progressStop();
-	}-*/;
-    
     public static native void blink(int count, String color) /*-{
 	    $wnd.navigator.notification.blink(count, color);
 	}-*/;
@@ -65,6 +45,44 @@ public class Notification {
 	    $wnd.navigator.notification.beep(count);
 	}-*/;
 
+    // Android only methods below
+    public static native void activityStart() /*-{
+    	if ($wnd.navigator.notification.activityStart !== undefined) {
+	    	$wnd.navigator.notification.activityStart();
+    	}
+	}-*/;
+
+	public static native void activityStart(String title, String message) /*-{
+    	if ($wnd.navigator.notification.activityStart !== undefined) {
+    		$wnd.PhoneGap.exec(null, null, "Notification", "activityStart", [title, message]);
+    	}
+	}-*/;
+
+    public static native void activityStop() /*-{
+    	if ($wnd.navigator.notification.activityStop !== undefined) {
+	    	$wnd.navigator.notification.activityStop();
+    	}
+	}-*/;
+
+    public static native void progressStart(String title, String message) /*-{
+    	if ($wnd.navigator.notification.progressStart !== undefined) {
+	    	$wnd.navigator.notification.progressStart(title, message);
+    	}
+	}-*/;
+
+    public static native void progressValue(int value) /*-{
+    	if ($wnd.navigator.notification.progressValue !== undefined) {
+	    	$wnd.navigator.notification.progressValue(value);
+    	}
+	}-*/;
+
+    public static native void progressStop() /*-{
+    	if ($wnd.navigator.notification.progressStop !== undefined) {
+	    	$wnd.navigator.notification.progressStop();
+    	}
+	}-*/;
+   
+    
     public interface Callback {
     	void onComplete();
     }

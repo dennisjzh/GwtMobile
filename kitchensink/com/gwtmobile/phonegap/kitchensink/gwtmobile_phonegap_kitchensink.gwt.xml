@@ -9,6 +9,8 @@
 
 	<source path="client" />
 
+	<stylesheet src="kitchensink.css"/>
+
 	<entry-point class="com.gwtmobile.phonegap.kitchensink.client.KitchenSink" />
 	
 	<set-property name="user.agent" value="safari"/>

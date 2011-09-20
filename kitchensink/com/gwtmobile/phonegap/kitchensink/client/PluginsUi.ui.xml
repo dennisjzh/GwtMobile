@@ -10,6 +10,7 @@
 		<m:ScrollPanel>
 			<m:ListPanel ui:field="list" showArrow="false">
 				<g:Label>Child Browser</g:Label>			
+				<g:Label>Bluetooth (Android)</g:Label>			
 			</m:ListPanel>
 		</m:ScrollPanel>
 	</g:HTMLPanel>

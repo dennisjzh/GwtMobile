@@ -47,6 +47,6 @@ public class BackButton extends Button implements ClickHandler {
 
     @Override
     public void onClick(ClickEvent event) {
-        PageHistory.current().goBack(_parameter);
+        PageHistory.Instance.current().goBack(_parameter);
     }
 }

@@ -26,10 +26,14 @@ public class FileMgr {
 	protected FileMgr() {}
 
 	// New instance creation
-	public static native FileReader newReaderInstance() /*-{
+	public static native FileReader newFileReader() /*-{
 		return new $wnd.FileReader();
 	}-*/;
 	
+	public static native FileTransfer newFileTransfer() /*-{
+		return new $wnd.FileTransfer();
+	}-*/;
+
 	public static void requestFileSystem(LocalFileSystem localFileSystem, FileSystemCallback callback)  {
 		requestFileSystemNative(localFileSystem.ordinal(), callback);
 	}
@@ -550,8 +554,93 @@ public class FileMgr {
 		public final native FileBase getTarget() /*-{
 			return this.target;
 		}-*/;
+			
+	}
+
+	public static class FileTransfer extends JavaScriptObject {
+
+		protected FileTransfer() {};
+		
+		public final native String upload(String filePath, String serverUrl, FileTransferCallback callback, FileTransferOptions options) /*-{
+			return this.upload(filePath, serverUrl, function(result) {
+					callback.@com.gwtmobile.phonegap.client.FileMgr.FileTransferCallback::onSuccess(Lcom/gwtmobile/phonegap/client/FileMgr$FileTransferResult;)(result);
+				}, function(error) {
+					callback.@com.gwtmobile.phonegap.client.FileMgr.FileTransferCallback::onError(Lcom/gwtmobile/phonegap/client/FileMgr$FileTransferError;)(error);
+				}, options);
+		}-*/;
 	
+	}
+
+	public interface FileTransferCallback {
+		void onSuccess(FileTransferResult result);
+		void onError(FileTransferError error);
+	}
+
+	public static class FileTransferResult extends JavaScriptObject {
+
+		protected FileTransferResult() {};
+		
+		public final native int getBytesSent() /*-{
+			return this.bytesSent;
+		}-*/;
+	
+		public final native int getResponseCode() /*-{
+			return this.responseCode;
+		}-*/;
+			
+		public final native String getResponse() /*-{
+			return this.response;
+		}-*/;
 		
 	}
+
+	public static class FileTransferError extends JavaScriptObject {
+
+		protected FileTransferError() {};
+		
+		public final FileTransferErrorCode getCode() {
+			return FileTransferErrorCode.values()[getCodeNative()];
+		}
+		
+		private final native int getCodeNative() /*-{
+			return this.code - 1; //code in phonegap is 1 based. 
+		}-*/;
+	}
+
+	public enum FileTransferErrorCode {
+		FILE_NOT_FOUND_ERR, 
+		INVALID_URL_ERR, 
+		CONNECTION_ERR
+	}
+
+	public static class FileTransferOptions extends JavaScriptObject {
+		
+		protected FileTransferOptions() {};
+
+		public static FileTransferOptions newInstance() {
+			return (FileTransferOptions) JavaScriptObject.createObject();
+		}
+
+		public final native FileTransferOptions fileKey(String fileKey) /*-{
+			this.fileKey = fileKey;
+			return this;
+		}-*/;
+	
+		public final native FileTransferOptions fileName(String fileName) /*-{
+			this.fileName = fileName;
+			return this;
+		}-*/;
+
+		public final native FileTransferOptions mimeType(String mimeType) /*-{
+			this.mimeType = mimeType;
+			return this;
+		}-*/;
+
+		public final native FileTransferOptions params(String params) /*-{
+			this.params = params;
+			return this;
+		}-*/;
+	}
+
 
 }

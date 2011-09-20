@@ -20,7 +20,10 @@ import com.google.gwt.user.client.ui.HTML;
 import com.gwtmobile.ui.client.utils.Utils;
 
 
-public class CheckBox extends com.google.gwt.user.client.ui.CheckBox {
+public class CheckBox extends com.google.gwt.user.client.ui.CheckBox 
+	implements IsGwtMobileWidget {
+
+    private IsGwtMobileWidgetHelper _widgetHelper = new IsGwtMobileWidgetHelper();
 
 	public CheckBox() {
 		super();
@@ -28,6 +31,12 @@ public class CheckBox extends com.google.gwt.user.client.ui.CheckBox {
 			CheckBoxIndicator indicator = new CheckBoxIndicator();
 			this.getElement().insertFirst(indicator.getElement());
 		}
+	}
+	
+	@Override
+	protected void onLoad() {
+		super.onLoad();
+		_widgetHelper.CheckInitialLoad(this);
 	}
 
 	@Override
@@ -46,6 +55,19 @@ public class CheckBox extends com.google.gwt.user.client.ui.CheckBox {
 		}
 	}
 
+	@Override
+	public void onInitialLoad() {
+	}
+
+	@Override
+	public void onTransitionEnd() {
+	}
+
+	@Override
+	public void setSecondaryStyle(String style) {
+		_widgetHelper.setSecondaryStyle(this, style);
+	}
+
 	static class CheckBoxIndicator extends HTML {
 		
 		public CheckBoxIndicator() {
@@ -53,4 +75,5 @@ public class CheckBox extends com.google.gwt.user.client.ui.CheckBox {
 			setStyleName("CheckBoxIndicator");
 		}
 	}
+
 }

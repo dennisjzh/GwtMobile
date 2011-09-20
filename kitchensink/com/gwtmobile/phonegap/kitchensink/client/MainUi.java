@@ -43,36 +43,39 @@ public class MainUi extends Page {
     		goTo(new CameraUi());
     		break;
     	case 2:
-    		goTo(new CompassUi());
+    		goTo(new CaptureUi());
     		break;
     	case 3:
-    		goTo(new ContactsUi());
+    		goTo(new CompassUi());
     		break;
     	case 4:
-    		goTo(new DeviceUi());
+    		goTo(new ContactsUi());
     		break;
     	case 5:
-    		goTo(new EventUi());
+    		goTo(new DeviceUi());
     		break;
     	case 6:
-    		goTo(new FileMgrUi());
+    		goTo(new EventUi());
     		break;
     	case 7:
-    		goTo(new GeolocationUi());
+    		goTo(new FileMgrUi());
     		break;
     	case 8:
-    		goTo(new MediaUi());
+    		goTo(new GeolocationUi());
     		break;
     	case 9:
-    		goTo(new NetworkUi());
+    		goTo(new MediaUi());
     		break;
     	case 10:
-    		goTo(new NotificationUi());
+    		goTo(new NetworkUi());
     		break;
     	case 11:
-    		goTo(new PluginsUi());
+    		goTo(new NotificationUi());
     		break;
     	case 12:
+    		goTo(new PluginsUi());
+    		break;
+    	case 13:
     		goTo(new StorageUi());
     		break;
     	}

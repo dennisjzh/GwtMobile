@@ -22,14 +22,23 @@ import com.google.gwt.event.dom.client.BlurHandler;
 import com.google.gwt.event.dom.client.FocusEvent;
 import com.google.gwt.event.dom.client.FocusHandler;
 
-abstract class TextBoxBase extends com.google.gwt.user.client.ui.TextBoxBase 
-	implements FocusHandler, BlurHandler {
+class TextBoxBase extends com.google.gwt.user.client.ui.TextBoxBase 
+	implements FocusHandler, BlurHandler, IsGwtMobileWidget {
+
+    private IsGwtMobileWidgetHelper _widgetHelper = new IsGwtMobileWidgetHelper();
 
 	TextBoxBase(String type) {
 	    super(createNumberInputElement(type));
 		setStyleName("TextBox " + capitalize(type));
 		addFocusHandler(this);
 		addBlurHandler(this);
+	}
+	
+	@Override
+	protected void onLoad() {
+		super.onLoad();
+		_widgetHelper.CheckInitialLoad(this);
+		
 	}
 	
 	@Override
@@ -52,5 +61,18 @@ abstract class TextBoxBase extends com.google.gwt.user.client.ui.TextBoxBase
 		return input.substring(0, 1).toUpperCase() + 
 				input.substring(1).toLowerCase();
 
+	}
+
+	@Override
+	public void onInitialLoad() {
+	}
+
+	@Override
+	public void onTransitionEnd() {
+	}
+
+	@Override
+	public void setSecondaryStyle(String style) {
+		_widgetHelper.setSecondaryStyle(this, style);
 	}
 }

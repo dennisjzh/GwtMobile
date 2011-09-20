@@ -71,15 +71,21 @@ public class Slider extends WidgetBase
 
     @Override
     public void onDragEnd(DragEvent e) {
-    	DragController.get().releaseCapture(this);
+    	DragController.get().releaseDragCapture(this);
     }
     
-    public void setValue(int value) {
+    public void setValue(int value, boolean fireEvent) {
     	if (_value != value) {
         	_value = value;
         	updateSliderPosition();
-        	ValueChangeEvent.fire(this, _value);
+        	if (fireEvent) {
+            	ValueChangeEvent.fire(this, _value);
+        	}
     	}
+    }
+    
+    public void setValue(int value) {
+    	setValue(value, true);
     }
     
 	public int getValue() {

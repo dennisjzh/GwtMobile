@@ -13,6 +13,7 @@
 				<g:Label>Animations</g:Label>			
 				<g:Label>Panels</g:Label>			
 				<g:Label>Widgets</g:Label>			
+				<g:Label>Server Communication</g:Label>			
 				<m:ListItem disabled="true" showArrow="false"><g:Label>Themes</g:Label></m:ListItem>			
 			</m:ListPanel>
 		</m:ScrollPanel>

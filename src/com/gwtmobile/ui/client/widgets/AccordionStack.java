@@ -18,6 +18,7 @@ package com.gwtmobile.ui.client.widgets;
 
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.core.client.Scheduler.ScheduledCommand;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtmobile.ui.client.utils.Utils;
 
@@ -28,7 +29,7 @@ public class AccordionStack extends PanelBase {
     private AccordionContent _content;
     
 	@Override
-    protected void onInitialLoad( ) {
+	public void onInitialLoad() {
         if (this.getStyleName().indexOf("Expand") == -1) {
         	close();
         }
@@ -51,6 +52,8 @@ public class AccordionStack extends PanelBase {
     public void close() {
         this.addStyleName("Collapse");
 		this.removeStyleName("Expand");
+		Element focus = Utils.getActiveElement();
+		focus.blur();
 		Scheduler.get().scheduleDeferred(new ScheduledCommand() {			
 			@Override
 			public void execute() {
@@ -60,6 +63,9 @@ public class AccordionStack extends PanelBase {
     }
 
     public void expand() {
+    	if (isExpended()) {
+    		return;
+    	}
         this.addStyleName("Expand");
         this.removeStyleName("Collapse");
 		Scheduler.get().scheduleDeferred(new ScheduledCommand() {			
@@ -72,12 +78,16 @@ public class AccordionStack extends PanelBase {
     }
     
     public void toggle() {
-        if (this.getStyleName().indexOf("Expand") == -1) {
+        if (!isExpended()) {
         	expand();
         }
         else {
         	close();
         }        
+    }
+    
+    public boolean isExpended() {
+    	return this.getStyleName().indexOf("Expand") > -1;
     }
     
     public AccordionHeader getHeader() {

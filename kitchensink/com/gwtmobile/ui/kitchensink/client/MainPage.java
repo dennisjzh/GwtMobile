@@ -17,13 +17,18 @@
 package com.gwtmobile.ui.kitchensink.client;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtmobile.ui.client.event.SelectionChangedEvent;
 import com.gwtmobile.ui.client.page.Page;
+import com.gwtmobile.ui.client.utils.Utils;
 import com.gwtmobile.ui.client.widgets.ListPanel;
+import com.gwtmobile.ui.kitchensink.client.communication.CommunicationPage;
 import com.gwtmobile.ui.kitchensink.client.panel.PanelsPage;
 import com.gwtmobile.ui.kitchensink.client.transition.TransitionsPage;
 import com.gwtmobile.ui.kitchensink.client.widget.WidgetsPage;
@@ -40,6 +45,13 @@ public class MainPage extends Page {
 
 	public MainPage() {
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		Window.addResizeHandler(new ResizeHandler() {		
+			@Override
+			public void onResize(ResizeEvent event) {
+				Utils.Console("gwtmobile-msg:window resized to " + event.getWidth() + " " + event.getHeight());
+			}
+		});
 	}
 
 	@UiHandler("list")
@@ -56,6 +68,10 @@ public class MainPage extends Page {
 		case 2:
 			WidgetsPage widgets = new WidgetsPage();
 			this.goTo(widgets);
+			break;
+		case 3:
+			CommunicationPage comm = new CommunicationPage();
+			this.goTo(comm);
 			break;
 		}
 	}

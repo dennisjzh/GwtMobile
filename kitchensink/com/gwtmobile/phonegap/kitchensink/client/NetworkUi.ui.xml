@@ -6,11 +6,11 @@
 	<ui:style>
 	</ui:style>
 	<g:HTMLPanel>
-		<p:PhoneGapHeaderPanel caption="Network"></p:PhoneGapHeaderPanel>
+		<p:PhoneGapHeaderPanel caption="Connection"></p:PhoneGapHeaderPanel>
 		<m:ScrollPanel>
 			<g:HTMLPanel styleName="Container">
 				<m:ListPanel ui:field="list">
-					<g:Label>Is Reachable</g:Label>
+					<g:Label>Connection Type</g:Label>
 				</m:ListPanel>
 				<g:HTML ui:field="text" styleName="Output">Console</g:HTML>
 			</g:HTMLPanel>

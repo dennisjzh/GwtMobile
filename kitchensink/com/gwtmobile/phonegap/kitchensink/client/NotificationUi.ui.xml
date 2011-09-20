@@ -14,9 +14,9 @@
 					<g:Label>Confirm</g:Label>
 					<g:Label>Beep</g:Label>
 					<g:Label>Vibrate</g:Label>
-					<g:Label>Blink</g:Label>
-					<g:Label>Activity</g:Label>
-					<g:Label>Progress</g:Label>
+					<g:Label>Blink (Android)</g:Label>
+					<g:Label>Activity (Android)</g:Label>
+					<g:Label>Progress (Android)</g:Label>
 				</m:ListPanel>
 				<g:HTML ui:field="text" styleName="Output">Console</g:HTML>
 			</g:HTMLPanel>

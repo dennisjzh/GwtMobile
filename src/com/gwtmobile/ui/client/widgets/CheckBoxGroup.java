@@ -18,6 +18,8 @@ package com.gwtmobile.ui.client.widgets;
 
 import java.util.ArrayList;
 
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.EventTarget;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -65,7 +67,7 @@ public class CheckBoxGroup extends PanelBase
     
     @Override
     public void onClick(ClickEvent e) {
-        EventTarget target = e.getNativeEvent().getEventTarget();
+        final EventTarget target = e.getNativeEvent().getEventTarget();
         String targetTagName = ((Element)target.cast()).getTagName().toUpperCase();
         Utils.Console("onClick target " + targetTagName);
         if (targetTagName.equals("LABEL")) {
@@ -82,7 +84,7 @@ public class CheckBoxGroup extends PanelBase
                 return;
             }
         }
-        int index = DOM.getChildIndex(this.getElement(), (com.google.gwt.user.client.Element)div);        
+        final int index = DOM.getChildIndex(this.getElement(), (com.google.gwt.user.client.Element)div);        
         com.google.gwt.user.client.ui.CheckBox checkbox = 
         	(com.google.gwt.user.client.ui.CheckBox) _panel.getWidget(index);
     	Utils.Console("onClick " + checkbox.getValue());
@@ -96,8 +98,14 @@ public class CheckBoxGroup extends PanelBase
     	else {
         	checkbox.setValue(!checkbox.getValue());
     	}
-		SelectionChangedEvent selectionChangedEvent = new SelectionChangedEvent(index, target);
-		fireEvent(selectionChangedEvent);
+    	
+    	Scheduler.get().scheduleDeferred(new ScheduledCommand() {			
+			@Override
+			public void execute() {
+				SelectionChangedEvent selectionChangedEvent = new SelectionChangedEvent(index, target);
+				fireEvent(selectionChangedEvent);
+			}
+		});
     }
     
     public ArrayList<Integer> getCheckedIndices() {
@@ -126,7 +134,7 @@ public class CheckBoxGroup extends PanelBase
     
     @Override
     public void add(Widget w) {
-    	assert w.getClass() == CheckBox.class 
+    	assert w instanceof CheckBox 
     		: "Can only contain CheckBox widgets in CheckBoxGroup";
     	CheckBox checkbox = (CheckBox) w;
         _panel.add(checkbox);

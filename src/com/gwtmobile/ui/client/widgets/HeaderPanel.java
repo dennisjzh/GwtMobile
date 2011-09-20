@@ -46,10 +46,6 @@ public class HeaderPanel extends WidgetBase implements HasWidgets {
     	contents.add(w);
     }
     
-    @Override
-    protected void onInitialLoad() {
-    }
-    
     public void setCaption(String caption) {
     	FlowPanel contents = ((FlowPanel)((FlowPanel)getWidget()).getWidget(1));
     	contents.clear();

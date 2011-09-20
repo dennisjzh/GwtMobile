@@ -19,6 +19,7 @@ package com.gwtmobile.ui.client.widgets;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtmobile.ui.client.event.DragController;
@@ -109,10 +110,17 @@ public class ListPanel extends PanelBase implements ClickHandler, DragEventsHand
     	if (_selectable) {
 	    	_selected = Utils.getTargetItemIndex(getElement(), e.getNativeEvent().getEventTarget());
 	    	if (_selected >= 0) {
-	    		ListItem item = (ListItem) getWidget(_selected);
-	    		if (!item.getDisabled()) {
-		        	getWidget(_selected).addStyleName("Pressed");
-	    		}
+	    		new Timer() {
+					@Override
+					public void run() {
+				    	if (_selected >= 0) {
+				    		ListItem item = (ListItem) getWidget(_selected);
+				    		if (!item.getDisabled()) {
+					        	getWidget(_selected).addStyleName("Pressed");
+				    		}
+				    	}
+					}
+				}.schedule(75);
 	    	}
     	}
     }
@@ -131,6 +139,10 @@ public class ListPanel extends PanelBase implements ClickHandler, DragEventsHand
         	getWidget(_selected).removeStyleName("Pressed");
     		//_selected = -1; need to keep the selected value for click event.
     	}
+    }
+    
+    public ListItem getItem(int index) {
+    	return (ListItem) getWidget(index);
     }
     
     static class Chevron extends HTML {    	

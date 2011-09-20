@@ -11,6 +11,7 @@
 			<m:ListPanel ui:field="list" showArrow="true">
 				<g:Label>Accelerometer</g:Label>			
 				<g:Label>Camera</g:Label>			
+				<g:Label>Capture</g:Label>			
 				<g:Label>Compass</g:Label>			
 				<g:Label>Contacts</g:Label>			
 				<g:Label>Device</g:Label>			

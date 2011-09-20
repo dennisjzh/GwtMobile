@@ -1,0 +1,837 @@
+/** Add css rules here for your application. */
+
+html, body {
+	height: 100%;
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-size: 62.5%;	/* 1em = 10px */
+	background: black;
+}
+
+html {
+	color: white;
+	font: normal 1.6em Helvetica, Arial, sans-serif; /* desktop:1.6em; androidwvga:2.4em */
+}
+
+.Android * {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Android */
+}
+	
+/********************* Page Zoom ****************/
+.WVGA {
+	font-size: 2.4em;
+}
+
+.HVGA {
+	font-size: 1.6em;
+}
+
+.QVGA {
+	font-size: 1em;
+}
+
+/********************* Page ****************/
+.Page {
+	position:relative;
+	z-index: 0;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	height: 100%;
+	width: 100%;
+	overflow:hidden;
+	background: #333;
+}
+
+/********************* Header Panel ****************/
+
+.HeaderPanel {
+	position:relative;
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: center;
+	-webkit-box-pack: justify;
+	padding: 0.3em 0.3em;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e1f21), color-stop(0.98, #272729), color-stop(0.98, black), to(black));
+	-webkit-box-shadow: 0 0 .6em black;
+	text-shadow: black 0.1em 0.1em 0.1em;
+	z-index: 1;	
+}
+
+/* needed this to get around the android browser bug when scroll, causing controls to disapear.*/
+.HeaderPanel * {
+	z-index: 1;
+}
+
+/* TODO: fix me! */
+.HeaderPanel > div > div.gwt-Label {
+	font-weight: bold;
+}
+
+.HeaderPanel > div:first-child, .HeaderPanel > div:last-child {
+	min-width:3em;
+}
+
+.HeaderPanel > div:nth-child(2) {
+	-webkit-box-flex: 1;
+	display: -webkit-box;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+}
+
+/************** Button **************/
+.Button {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 0.3em 0.5em 0.5em 0.5em;
+	-webkit-border-radius: 0.3em;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#838383), color-stop(0.5, #444), color-stop(0.5, #303030), to(#333));
+	border: solid 0px rgba(79, 79, 79, 0.75);
+	height:1em;	
+	text-align: center;
+	text-shadow: rgba(0, 0, 0, 1) 0 -0.1em 0.1em;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0.1em 0.1em 0.1em;
+}
+
+.Button.Pressed, .BackButton.Pressed > span.Button, .NextButton.Pressed > span.Button {
+	text-shadow: darkgreen 0 -0.1em 0.1em;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+		from(lightgreen), color-stop(0.5, #298C08), color-stop(0.5, darkgreen), to(darkgreen));
+}
+
+.BackButton {
+	position: relative;
+	margin-left: 0.8em;
+}
+
+.BackButton > span.Button {
+	padding-left: 0;
+	-webkit-border-top-left-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-left: 0 !important;
+}
+
+.BackButton > span.Pointer {
+	position: absolute;
+	display: block;
+	height: 1.3em;
+	width: 1.3em;
+	left: -0.65em;
+	top: 0.25em;
+	border-top: 0;
+	border-right: 0;
+	background-image: -webkit-gradient(linear, left top, right bottom, from(#838383), color-stop(0.5, #444), color-stop(0.5, #303030), to(#333));
+	-webkit-transform: rotate(45deg);
+	-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0.1em 0.1em 0.1em;
+	z-index: -1;
+}
+
+.BackButton.Pressed > span.Pointer {
+	background: -webkit-gradient(linear, left top, right bottom, 
+		from(lightgreen), color-stop(0.5, #298C08), color-stop(0.5, darkgreen), to(darkgreen));
+}
+
+.NextButton {
+	position: relative;
+	margin-right: 0.8em;
+}
+
+.NextButton > span.Button {
+	padding-right: 0;
+	-webkit-border-top-right-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-right: 0 !important;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.4) -0.1em 0.1em 0.1em;
+}
+
+.NextButton > span.Pointer {
+	position: absolute;
+	display: block;
+	height: 1.3em;
+	width: 1.3em;
+	right: -0.65em;
+	top: 0.25em;
+	border-top: 0;
+	border-left: 0;
+	background-image: -webkit-gradient(linear, left top, right bottom, from(#838383), color-stop(0.5, #444), color-stop(0.5, #303030), to(#333));
+	-webkit-transform: rotate(45deg);
+	-webkit-box-shadow: rgba(0, 0, 0, 0.4) 0.1em 0.1em 0.1em;
+	z-index: -1;
+}
+
+.NextButton.Pressed > span.Pointer {
+	background: -webkit-gradient(linear, left top, right bottom, 
+		from(lightgreen), color-stop(0.5, #298C08), color-stop(0.5, darkgreen), to(darkgreen));
+}
+
+.Button.Disabled {
+	color: gray;
+}
+
+/********** Scroll Panel **********/
+.ScrollPanel {
+	-webkit-transition-property: -webkit-transform, top;
+    -webkit-transition-timing-function: cubic-bezier(0,0,0.25,1);
+	-webkit-box-flex: 10;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	padding-top: .3em;
+	padding-bottom: .5em;
+}
+
+.ScrollPanel > * {
+	position: relative;
+}
+
+/********** List Panel **********/
+.ListPanel {
+	position:relative;
+	display: -webkit-box;
+	-webkit-box-orient: vertical; 
+}
+
+.ListPanel > div {
+	border-bottom:1px solid #333333;
+	border-top:1px solid #666666;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	vertical-align:middle !important;
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-pack: justify;
+	-webkit-box-align: center;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+} 
+
+.ListPanel > div:first-child {
+	border-top:0px;
+	border-top-left-radius: 0.4em 0.4em;
+	border-top-right-radius: 0.4em 0.4em;
+	-webkit-box-shadow: rgba(0, 0, 0, .5) 0em -.2em 0.2em;
+} 
+
+.ListPanel > div:last-child {
+	border-bottom:0px;
+	border-bottom-left-radius: 0.4em 0.4em;
+	border-bottom-right-radius: 0.4em 0.4em;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0em 0.2em 0.2em;
+} 
+
+.ListPanel > div:only-child {
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0em 0em 0.5em;
+}
+
+.ListPanel > div.Pressed {
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+		from(lightgreen), color-stop(0.5, #298C08), color-stop(0.5, darkgreen), to(darkgreen));
+}
+
+.ListPanel > div.Disabled {
+	color: gray;
+}
+
+/* anti-flickering */
+.iOS .ScrollPanel > .ListPanel > div {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+/********** Slide Panel **********/
+.SlidePanel {
+	-webkit-box-flex: 1;
+	position: relative;
+	margin: .5em;
+}
+
+.Slide {
+	position:absolute;
+	display: -webkit-box;
+	height: 100%;
+	width: 100%;
+}
+
+/********** Chevron (arrow) **********/
+.Chevron {
+	position: relative;
+	margin-right: 0.5em;
+	padding-left: 0.5em;
+	top: -0.6em;	
+}
+
+.Chevron > span {
+	position: absolute;
+	width: 0.3em;
+	height: 0.8em;
+	background: gray;
+}
+
+.Chevron > span:first-child {
+	-webkit-transform: rotate(-45deg);
+}
+
+.Chevron > span:last-child {
+	-webkit-transform: rotate(45deg);
+	top: 0.4em;	
+}
+
+
+/********** Tab Panel **********/
+
+.TabPanel {
+	width:100%;
+	-webkit-box-flex: 1;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+.TabPanel > div:first-child {	/*tab header panel*/
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	border-bottom: 0.2em solid #BDBDBD;
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0 0 1em;
+	font-size: .8em;
+	background: #333;
+	position: relative;
+	z-index: 1;
+}
+
+.TabPanel > div:first-child > div {		/*tab header*/
+	-webkit-box-flex: 1;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	min-height: 2em;
+	border-left: 1px solid #666666;
+	border-top: 1px solid #666666;
+	border-bottom: 1px solid #333333;
+	margin: 0 0.2em 0 0.2em;
+	color: gray;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+	border-top-left-radius: 0.3em 0.3em;
+	border-top-right-radius: 0.3em 0.3em;
+}
+
+.TabPanel > div:first-child > div.Selected {
+	color:black;
+	text-shadow: white 0 .1em .1em;
+	border-left: 1px solid white;
+	border-top: 1px solid white;
+	border-bottom: 1px solid #BDBDBD;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#BDBDBD));
+}
+
+.TabPanel > div:first-child > div.Selected .gwt-Image {
+	opacity: 1;
+}
+
+.TabPanel > div:first-child > div .gwt-Image {
+	opacity: 0.5;
+}
+
+.TabPanel > div:last-child {			/*tab content panel*/
+	position: relative;
+	-webkit-box-flex: 1;
+}
+
+.TabPanel > div:last-child > div {		/*tab content*/
+	position:absolute;
+	display: -webkit-box;
+	height: 100%;
+	width: 100%;
+}
+
+.Android .TabPanel > div:first-child > div {		/*tab header*/
+	-webkit-box-shadow: #BDBDBD 0 0 .1em;	/* antialias workaround */
+}
+
+/********** Accordion Panel **********/
+
+.Accordion > div {		/* stack */
+}
+
+.Accordion > div > div:first-child { /* header */
+	display:-webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: center;
+	cursor: pointer;
+	padding:.5em .5em .5em 0em;
+	border-bottom:1px solid #333333;
+	border-top: 1px solid #666666;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+}
+
+.Accordion > div > div:first-child.Pressed {
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+		from(lightgreen), color-stop(0.5, #298C08), color-stop(0.5, darkgreen), to(darkgreen));
+}
+
+.Accordion > div:first-child > div:first-child {
+	border-top:0;
+	border-top-left-radius: 0.4em 0.4em;
+	border-top-right-radius: 0.4em 0.4em;
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0em 0em 0.5em;
+}
+
+.Accordion > div:last-child.Collapse > div:first-child {
+	border-bottom:0;
+	border-bottom-left-radius: 0.4em 0.4em;
+	border-bottom-right-radius: 0.4em 0.4em;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0em 0.2em 0.2em;
+}
+
+.Accordion > div > div:last-child { /* content */
+	overflow: hidden;
+	padding:.5em;
+	color: black;
+	background:#e3e3e3;
+	-webkit-transition-property: height;
+	-webkit-transition-duration: 200ms;
+	-webkit-transition-timing-function: ease;
+}
+
+.Accordion > div:last-child.Expand > div:last-child { /* content */
+	border-bottom-left-radius: 0.4em 0.4em;
+	border-bottom-right-radius: 0.4em 0.4em;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0em 0.2em 0.2em;
+}
+
+.Accordion > div.Collapse > div:last-child {
+	padding-top: 0;
+	padding-bottom: 0;
+	height: 0 !important;
+}
+
+.AccordionArrow {
+	border: .4em solid gray;
+	border-right-color: transparent;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	height: 0.001em;
+	width: 0.001em;
+	margin-left: .5em;
+}
+
+.Accordion > div.Expand > div > .AccordionArrow {
+	position: relative;
+	top: .3em;
+	left: -.2em;
+	border-top-color: gray;
+	border-left-color: transparent;
+}
+
+
+/********** TextBox **********/
+
+.TextBox, .TextArea {
+	padding: .4em;
+	border: 1px solid black;
+	-webkit-appearance: none;						/* iOS */
+}
+
+.TextBox.Focus, .TextArea.Focus {
+	-webkit-box-shadow: lightgreen 0em 0em .4em;
+}
+
+/******************* Radio Button *************/
+
+.CheckBoxGroup, .RadioButtonGroup {
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	width: 100%;
+}
+
+.CheckBoxGroup > span, .RadioButtonGroup > span {
+	-webkit-box-flex: 1;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	text-shadow: black 0px 0.1em 0.1em;
+	padding: .5em .1em;
+	border-left: 1px solid #777;
+	border-right: 1px solid #555;
+	color: white;
+	background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#666), to(#555));	
+}
+
+.CheckBoxGroup.Horizontal > span.Selected,
+.RadioButtonGroup.Horizontal > span.Selected {
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lightGreen), to(darkGreen));
+	border-left-color: lightGreen;
+	border-right-color: darkGreen;
+}
+
+.CheckBoxGroup.Horizontal > span > input, 
+.CheckBoxGroup.Horizontal > span > div,
+.RadioButtonGroup.Horizontal > span > input, 
+.RadioButtonGroup.Horizontal > span > div {
+	display: none;
+}
+
+.CheckBoxGroup > span:first-child,
+.RadioButtonGroup > span:first-child {
+	border-left: 0px;
+	border-bottom-left-radius: 0.4em 0.4em;
+	border-top-left-radius: 0.4em 0.4em;
+}
+
+.CheckBoxGroup > span:last-child,
+.RadioButtonGroup > span:last-child {
+	border-right: 0px;
+	border-bottom-right-radius: 0.4em 0.4em;
+	border-top-right-radius: 0.4em 0.4em;
+}
+
+.CheckBoxGroup.Vertical,
+.RadioButtonGroup.Vertical {
+	-webkit-box-orient: vertical;
+}
+
+.CheckBoxGroup.Vertical > span,
+.RadioButtonGroup.Vertical > span {
+	-webkit-box-pack: start;
+	border: 0;
+}
+
+.CheckBoxGroup.Vertical > span.Pressed,
+.RadioButtonGroup.Vertical > span.Pressed {
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lightGreen), to(darkGreen));
+}
+
+.CheckBoxGroup.Vertical > span:first-child,
+.RadioButtonGroup.Vertical > span:first-child {
+	border-bottom-left-radius: 0;
+	border-top-right-radius: 0.4em 0.4em;
+}
+
+.CheckBoxGroup.Vertical > span:last-child,
+.RadioButtonGroup.Vertical > span:last-child {
+	border-bottom-left-radius: 0.4em 0.4em;
+	border-top-right-radius: 0;
+}
+
+.Android .CheckBoxGroup > span,
+.Android .RadioButtonGroup > span {
+	-webkit-box-shadow: 0 0 1px #666;	/* android radius antialias workaround */	
+}
+
+/* Android native check box and radio button are too small in WVGA resolution */
+
+.WVGA .CheckBoxGroup > span > input,
+.WVGA .RadioButton > input {
+	display: none;
+}
+
+.WVGA .RadioButton > div {
+	width: 1.2em;
+	height: 1.2em;
+	margin: 0 .4em 0 .4em;
+	background-image:
+		-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 16,
+			from(white),
+			to(gray));
+	-webkit-border-radius: .6em;
+	border: 1px solid #444;
+	-webkit-box-shadow:0 0 .1em #444;
+}
+
+.WVGA .RadioButton.Selected > div {
+	background-image:
+		-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 16,
+			from(lightgreen),
+			to(green));
+	-webkit-box-shadow:0 0 .1em darkgreen;
+}
+	
+.WVGA .CheckBoxIndicator {
+	position: relative;
+	margin: 0 .4em 0 .4em;
+}
+
+.WVGA .CheckBoxIndicator > div:first-child {
+	width: .8em;
+	height: .8em;
+	padding: .1em;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#555), to(#777));
+	-webkit-background-clip: padding;
+	border: .1em solid #333;
+	border-radius: .2em;
+}
+
+.WVGA .CheckBoxIndicator > div:first-child > div {
+	width: .65em;
+	height: .65em;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(gray));
+	border: .1em solid #333;
+}
+
+.WVGA .Selected .CheckBoxIndicator > div:nth-child(2),
+.WVGA .Selected .CheckBoxIndicator > div:nth-child(3),
+.WVGA .Selected .CheckBoxIndicator > div:nth-child(4) {
+	position: absolute;
+	background: #00CC00;
+	border: .1em solid #111;
+}
+	
+.WVGA .Selected .CheckBoxIndicator > div:nth-child(2) {
+	width: .2em;
+	height: .3em;
+	top: .35em;
+	left: .2em;
+	-webkit-transform: rotate(-45deg);
+	border-bottom: 0;
+}
+
+.WVGA .Selected .CheckBoxIndicator > div:nth-child(3) {
+	width: .2em;
+	height: 1em;
+	top: -.1em;
+	left: .7em;
+	-webkit-transform: rotate(45deg);
+	border-bottom: 0;
+}
+
+.WVGA .Selected .CheckBoxIndicator > div:nth-child(4) {
+	width: .2em;
+	height: .4em;
+	top: .5em;
+	left: .4em;
+	-webkit-transform: rotate(-45deg);
+	border-right: 0;
+	border-top: 0;
+}
+
+/******************* Flip Switch *************/
+
+.FlipSwitch.Disabled {
+  opacity: .3;
+}
+
+.FlipSwitch {
+	position: relative;
+	border-radius: .3em;
+	overflow: hidden;
+	border: 1px solid #333;
+	-webkit-box-shadow: 0px 0px .1em #333;
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+}
+
+.FlipSwitch > div:first-child, .FlipSwitch > div:nth-child(2) {
+	width: 3em;
+	height: 1.75em;	
+}
+
+.FlipSwitch > div:first-child {
+	border-top-left-radius: .3em;
+	border-bottom-left-radius: .3em;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+		from(darkGreen), color-stop(0.1, #298C08), color-stop(0.5, lightGreen), to(lightGreen));
+}
+
+.FlipSwitch > div:nth-child(2) {
+	border-top-right-radius: .3em;
+	border-bottom-right-radius: .3em;
+	background: white -webkit-gradient(linear, 0% 0%, 0% 100%, 
+		from(gray), color-stop(0.1, lightgray), color-stop(0.5, white), to(white));
+}
+
+
+.FlipSwitch > div:last-child {
+	position: absolute;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.FlipSwitch > div:last-child > div {
+	position: relative;
+	display: -webkit-box;
+	height: 100%;
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-timing-function: linear;
+}
+
+.FlipSwitch > div:last-child > div > div {
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	font-weight: bold;
+}
+
+.FlipSwitch > div:last-child > div > div:first-child {
+	width: 3em;
+	text-shadow: #093B5C 0px 1px 1px;
+}
+
+.FlipSwitch > div:last-child > div > div:last-child {
+	width: 2.8125em;
+	color: darkgray;
+	text-shadow: black 0px 1px 1px;
+}
+
+.FlipSwitch > div:last-child > div > div:nth-child(2) {
+	width: 3.1em;
+	margin-left: -.1875em;
+	border: 1px solid #E5E5E5;
+	border-radius: .3em;
+	-webkit-box-shadow: black 0 0 .2em;
+	background: white -webkit-gradient(linear, 0% 0%, 0% 100%, from(#A1A1A1), to(white));
+}
+
+
+/******************* Slider *************/
+
+.Slider {
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+}
+
+.Slider > div:first-child {		/* label */
+	min-width: 2em;
+	display: -webkit-box;
+	-webkit-box-align: center;
+}
+
+.Slider > div:first-child.Hide {
+	display: none;
+}
+
+.Slider > div:last-child {		/* slider */
+	position: relative;
+	height: 1.8em;
+	min-width: 10em;
+	margin: 0 .5em 0 .5em;	
+	display: -webkit-box;
+	-webkit-box-flex: 1;
+}
+
+.Slider > div:last-child > div {
+	border: 1px solid #333;
+	height: 1em;
+	-webkit-background-clip: content !important;
+}
+
+.Slider > div:last-child > div:first-child {
+	position: absolute;
+	top: .4em;
+	width: 100%;
+	border-radius: .3em;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+		from(gray), to(white));
+}
+
+.Slider > div:last-child > div:nth-child(2) {
+	position: relative;
+	top: .4em;
+	border-top-left-radius: .3em;
+	border-bottom-left-radius: .3em;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+		from(darkgreen), to(lightgreen));
+}
+
+
+.Slider > div:last-child > div:last-child {
+	position: relative;
+	margin-left: -.5em;
+	width: 1em;
+	height: 1.8em;
+	border-radius: .2em;
+	-webkit-box-shadow: black 0 0 .1em;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, 
+		from(#A1A1A1), to(white));
+}
+
+
+/******************* Drop Down List *************/
+
+.Desktop .DropDownList,
+.Android .DropDownList {
+	display: -webkit-box;	
+}
+
+.iOS .DropDownList > select {
+	font-size: .8em;
+}
+
+.Desktop .DropDownList > select,
+.Android .DropDownList > select {
+	-webkit-appearance: none;
+	height: 1.5em;
+	min-width: 10em;
+	padding-left: .4em;
+	border: 0;
+	border-radius: .3em;
+	-webkit-box-shadow: 0 0 1px white;
+	-webkit-background-clip: content;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(gray));
+}
+
+.Desktop .DropDownList > select {	/* bug in Desktop Chrome? */
+	height: 24px;
+}
+
+.Desktop .DropDownList > div:nth-child(2),
+.Android .DropDownList > div:nth-child(2) {
+	position: relative;
+	border: 0;
+	width: 1.5em;
+	height: 1.5em;
+	border-top-right-radius: .3em;
+	border-bottom-right-radius: .3em;
+	margin-left: -1.5em;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#BBB), to(#666));
+}
+
+.Desktop .DropDownList > div:nth-child(3),
+.Android .DropDownList > div:nth-child(3) {
+	position: relative;
+	border: .4em solid black;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+	height: 0.001em;
+	width: 0.001em;
+	left: -1.2em;
+	top: .6em;
+}
+
+.Desktop .DropDownList > div:nth-child(4),
+.Android .DropDownList > div:nth-child(4) {
+	position: relative;
+	border: .4em solid white;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+	height: 0.001em;
+	width: 0.001em;
+	left: -1.95em;
+	top: .55em;
+}
+
+.Desktop .DropDownList.Focus > select,
+.Android .DropDownList.Focus > select {
+	-webkit-box-shadow: lightgreen 0em 0em .4em;
+}
+
+.Desktop .DropDownList.Focus > div:nth-child(2),
+.Android .DropDownList.Focus > div:nth-child(2) {
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(lightgreen), to(darkgreen));
+}
+
+/******************* Horizontal Panel *************/
+.HorizontalPanel {
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-align: center;
+}
+
+
+/******************* Vertical Panel *************/
+.VerticalPanel {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}

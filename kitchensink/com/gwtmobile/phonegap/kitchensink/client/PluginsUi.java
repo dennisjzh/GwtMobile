@@ -41,6 +41,7 @@ public class PluginsUi extends Page {
     		ChildBrowser.showWebPage("http://www.phonegap.com", true);
     		break;
     	case 1:
+    		goTo(new BluetoothUi());
     		break;
     	}
     }
