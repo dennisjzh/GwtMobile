@@ -3,4 +3,10 @@ classes
 deploy
 *~
 war/KitchenSink
+war/bluetooth.js
+war/childbrowser.js
+war/phonegap*.js
+war/com.gwtmobile.phonegap.gwtmobile_phonegap
+war/com.gwtmobile.ui.gwtmobile_ui
+war/kitchensink.css
 .gwt-tmp

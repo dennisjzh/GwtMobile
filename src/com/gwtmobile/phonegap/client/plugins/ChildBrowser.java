@@ -16,7 +16,7 @@
 
 package com.gwtmobile.phonegap.client.plugins;
 
-import com.gwtmobile.ui.client.utils.Utils;
+import com.gwtmobile.phonegap.client.Utils;
 
 public class ChildBrowser {
 	

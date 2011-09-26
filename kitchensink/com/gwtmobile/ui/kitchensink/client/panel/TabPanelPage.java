@@ -17,10 +17,13 @@
 package com.gwtmobile.ui.kitchensink.client.panel;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtmobile.ui.client.page.Page;
+import com.gwtmobile.ui.client.utils.Utils;
 import com.gwtmobile.ui.client.widgets.HeaderPanel;
 import com.gwtmobile.ui.client.widgets.TabPanel;
 
@@ -37,6 +40,14 @@ public class TabPanelPage extends Page {
 
 	public TabPanelPage() {
 		initWidget(uiBinder.createAndBindUi(this));				
+		
+		tab.addSelectionHandler(new SelectionHandler<Integer>() {
+			
+			@Override
+			public void onSelection(SelectionEvent<Integer> event) {
+				Utils.Console("Tab selection " + event.getSelectedItem() );
+			}
+		});
 	}
 
 }

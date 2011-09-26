@@ -19,7 +19,6 @@ package com.gwtmobile.phonegap.client;
 import java.util.Date;
 
 import com.google.gwt.core.client.JavaScriptObject;
-import com.gwtmobile.ui.client.utils.Utils;
 
 public class Geolocation {
 	

@@ -21,6 +21,10 @@ import java.util.Iterator;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.HasSelectionHandlers;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -29,7 +33,7 @@ import com.gwtmobile.ui.client.page.Transition;
 import com.gwtmobile.ui.client.utils.Utils;
 
 //FIXME: extends PanelBase
-public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
+public class TabPanel extends WidgetBase implements HasWidgets, HasSelectionHandlers<Integer>, ClickHandler {
 
     private FlowPanel _panel = new FlowPanel();
     private FlowPanel _tabHeaderPanel = new FlowPanel();
@@ -60,7 +64,6 @@ public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
     
     public void selectTab(int index) {
         if (_selectedTabIndex == index) {
-        	Utils.Console("same tab");
         	return;
         }
         Tab from = unselectCurrentTab();
@@ -76,12 +79,17 @@ public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
         			index < _selectedTabIndex);
         }
         _selectedTabIndex = index;
+        SelectionEvent.fire(this, _selectedTabIndex);
     }
 
     public int getSelectedTabIndex() {
         return _selectedTabIndex;
     }
 
+    public Tab getSelectedTab() {
+    	return (Tab) _tabHeaderPanel.getWidget(_selectedTabIndex);
+    }
+    
 	@Override
 	public void onClick(ClickEvent event) {
 		int index = getClickedTabHeaderIndex(event);
@@ -128,5 +136,11 @@ public class TabPanel extends WidgetBase implements HasWidgets, ClickHandler {
         		(com.google.gwt.user.client.Element)div);
         return index;
     }
+
+	@Override
+	public HandlerRegistration addSelectionHandler(
+			SelectionHandler<Integer> handler) {
+		return this.addHandler(handler, SelectionEvent.getType());
+	}
 
 }
